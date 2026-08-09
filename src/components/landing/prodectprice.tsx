@@ -1,7 +1,7 @@
 import { div } from 'framer-motion/client';
 import React from 'react'
 
-function ProdectP({ price }: { price: string }) {
+function  ProdectP({ price }: { price:any }) {
     const [int, float] = price.split(".");
   return (
   <div>

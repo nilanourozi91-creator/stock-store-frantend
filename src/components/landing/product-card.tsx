@@ -37,7 +37,7 @@ export default function ProductCard({product}:{ product:any}) {
         </button>
 
         {/* Image */}
-        <Link href={`/shop/${product.id}`}>
+        <Link href={`/${product.id}`}>
           {/* <img
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           /> */}

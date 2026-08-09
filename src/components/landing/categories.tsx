@@ -55,8 +55,12 @@ export default function Categories() {
 
         {/* Header */}
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-
-          <div>
+          <motion.div
+           initial={{ opacity: 0, x: -20 }}
+           whileInView={{ opacity: 1, x: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+          >
             <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-purple-600">
               Shop by category
             </p>
@@ -70,7 +74,7 @@ export default function Categories() {
               Explore our carefully selected categories and
               find everything you need for your everyday life.
             </p>
-          </div>
+          </motion.div>
 
           <Link
             href="/categories"
