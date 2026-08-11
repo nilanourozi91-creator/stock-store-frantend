@@ -167,6 +167,7 @@ import LowStock from "@/components/admin/low-stock";
 import RecentOrders from "@/components/admin/recent-orders";
 import SalesChart from "@/components/admin/sales-chart";
 import StatCard from "@/components/admin/stat-card";
+import Link from "next/link";
 
 const stats = [
   {
@@ -216,7 +217,8 @@ export default function AdminDashboard() {
           type="button"
           className="inline-flex items-center justify-center gap-2 rounded-full bg-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-200 transition hover:bg-purple-700"
         >
-          View Reports
+          <Link href='/admin/reports' >
+           View Reports</Link>
 
           <ArrowUpRight className="h-4 w-4" />
         </button>

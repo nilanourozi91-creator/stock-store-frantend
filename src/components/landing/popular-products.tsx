@@ -3,8 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Flame } from "lucide-react";
 import ProductCard from "./product-card";
 import { motion } from "motion/react";
-import { GetAllProdects } from "../../../lib/actions/prodect.action";
-import { h1 } from "framer-motion/client";
+import { GetAllProdects } from "../../lib/prodect.action";
 export default  function PopularProducts({prodeucts}:{prodeucts:any}) {
   console.log(prodeucts);
   return (

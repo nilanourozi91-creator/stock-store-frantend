@@ -14,8 +14,9 @@ import Image from "next/image";
 // import ProductPrice from "./productprice";
 import prodectprice from "./prodectprice";
 import ProdectP from "./prodectprice";
+import WishlistButton from "../share/Buttonwishlist";
 export default function ProductCard({product}:{ product:any}) {
-    console.log(product.reviews.rating);
+    // console.log(product.reviews.rating);
   return (
     <Card className="group relative overflow-hidden border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/60">
 
@@ -30,11 +31,12 @@ export default function ProductCard({product}:{ product:any}) {
         )}
 
         {/* Wishlist */}
-        <button
+        <div
           aria-label={`Add ${product.name} to wishlist`}
-          className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-600 shadow-sm backdrop-blur transition hover:bg-purple-600 hover:text-white">
-          <Heart className="h-4 w-4" />
-        </button>
+          className="">
+          <div className="absolute z-50 right-3 top-3">
+             <WishlistButton productId={product.id} token={''} /> </div>
+        </div>
 
         {/* Image */}
         <Link href={`/${product.id}`}>

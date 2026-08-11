@@ -7,19 +7,16 @@ import SpecialOffers from "@/components/landing/SpecialOffers";
 import Testimonials from "@/components/landing/Testimonials";
 import Newsletter from "@/components/landing/Newsletter";
 import Footer from "@/components/landing/Footer";
-import { GetAllProdects } from "../../lib/actions/prodect.action";
+import { GetAllProdects } from "../lib/prodect.action";
 
 async function Page() {
   const data= await GetAllProdects();
   return (
     <div>
-      <Navbar />
-
+      {/* <Navbar /> */}
       <main className="min-h-screen">
         <Hero />
-
         <Categories />
-
         <PopularProducts prodeucts={data} />
 
         <WhyChooseFreshStock />

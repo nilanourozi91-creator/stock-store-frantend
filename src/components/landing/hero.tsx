@@ -85,7 +85,7 @@ export default function Hero() {
             </Link>
 
           </motion.div>
-
+           
           {/* Benefits */}
           <motion.div
            initial={{ opacity: 0, y: -20 }}
@@ -127,7 +127,6 @@ export default function Hero() {
             </div>
 
           </motion.div>
-
         </div>
 
         {/* RIGHT IMAGE */}

@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Image from 'next/image';
 import React from 'react'
-import { GetAllProdects, GetAllReviews, GetSingleProdect } from '../../../lib/actions/prodect.action';
+import { GetAllProdects, GetAllReviews, GetSingleProdect } from '../../lib/prodect.action';
 // import ProductImages from '@/components/share/prodect-image';
 import ProdectImg from '@/components/share/prodect-image';
 import ProdectP from '@/components/landing/prodectprice';
