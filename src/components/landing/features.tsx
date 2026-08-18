@@ -44,7 +44,7 @@ export default function Features() {
 
         <div className="mx-auto max-w-2xl text-center">
 
-          <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-600">
+          <span id="Home"  className="rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-600">
             Why Choose FreshStock
           </span>
 

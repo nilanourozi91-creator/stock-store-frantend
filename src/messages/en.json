@@ -1,0 +1,119 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "shop": "Shop",
+    "categories": "Categories",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "cart": "Cart"
+  },
+
+  "Hero": {
+    "badge": "Fresh products, better living",
+    "title": "Freshness delivered",
+    "titleHighlight": "to your door.",
+    "description": "Discover fresh groceries, quality products and everyday essentials at great prices.",
+    "shopNow": "Shop Now",
+    "exploreCategories": "Explore Categories",
+    "products": "Fresh Products",
+    "customers": "Happy Customers",
+    "delivery": "Fast Delivery"
+  },
+
+  "Categories": {
+    "badge": "Shop by category",
+    "title": "Freshness for every",
+    "titleHighlight": "moment.",
+    "description": "Explore our carefully selected categories and find everything you need.",
+    "viewAll": "View All Categories",
+    "fruits": "Fruits",
+    "vegetables": "Vegetables",
+    "dairy": "Dairy",
+    "meat": "Meat",
+    "bakery": "Bakery",
+    "drinks": "Drinks"
+  },
+
+  "PopularProducts": {
+    "badge": "Popular products",
+    "title": "Fresh picks for",
+    "titleHighlight": "you.",
+    "description": "Our customers' favorite fresh products.",
+    "viewAll": "View All Products",
+    "addToCart": "Add to cart"
+  },
+
+  "PromoBanner": {
+    "badge": "Special offer",
+    "title": "Fresh deals every day.",
+    "description": "Save more on your favorite fresh products.",
+    "shopNow": "Shop Now"
+  },
+
+  "Features": {
+    "fresh": "100% Fresh Products",
+    "freshDescription": "We carefully select fresh and quality products.",
+    "delivery": "Fast Delivery",
+    "deliveryDescription": "Get your products delivered quickly to your door.",
+    "secure": "Secure Payment",
+    "secureDescription": "Your payments are safe and protected.",
+    "support": "24/7 Support",
+    "supportDescription": "Our team is always ready to help you."
+  },
+
+  "WhyChoose": {
+    "badge": "Why FreshStock?",
+    "title": "Freshness you can",
+    "titleHighlight": "trust.",
+    "description": "We make shopping for fresh products simple, reliable and enjoyable.",
+    "quality": "High Quality",
+    "qualityDescription": "Only quality products make it to FreshStock.",
+    "fresh": "Always Fresh",
+    "freshDescription": "We care about freshness from store to your door.",
+    "prices": "Great Prices",
+    "pricesDescription": "Fresh products at prices you'll love."
+  },
+
+  "BestSelling": {
+    "badge": "Best sellers",
+    "title": "What everyone is",
+    "titleHighlight": "buying.",
+    "viewAll": "View All",
+    "addToCart": "Add to cart"
+  },
+
+  "SpecialOffers": {
+    "badge": "Special offers",
+    "title": "Fresh deals made",
+    "titleHighlight": "for you.",
+    "description": "Don't miss our limited-time offers.",
+    "shopNow": "Shop Offers"
+  },
+
+  "Testimonials": {
+    "badge": "Customer reviews",
+    "title": "Loved by our",
+    "titleHighlight": "customers.",
+    "description": "See what our customers say about FreshStock."
+  },
+
+  "Newsletter": {
+    "badge": "Stay fresh",
+    "title": "Get fresh deals in your inbox.",
+    "description": "Subscribe to receive special offers, new products and FreshStock updates.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe"
+  },
+
+  "Footer": {
+    "description": "Fresh products, quality groceries and everyday essentials delivered to your door.",
+    "quickLinks": "Quick Links",
+    "shop": "Shop",
+    "categories": "Categories",
+    "about": "About Us",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "copyright": "© 2026 FreshStock. All rights reserved."
+  }
+}

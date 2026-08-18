@@ -11,14 +11,13 @@ import {
 import { Card } from "@/components/ui/card";
 import { cn } from "../../../utils";
 import Image from "next/image";
-// import ProductPrice from "./productprice";
 import prodectprice from "./prodectprice";
 import ProdectP from "./prodectprice";
 import WishlistButton from "../share/Buttonwishlist";
 export default function ProductCard({product}:{ product:any}) {
     // console.log(product.reviews.rating);
   return (
-    <Card className="group relative overflow-hidden border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/60">
+    <Card className="group relative py-0 overflow-hidden dark:bg-gray-700 dark:shadow-none border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/60">
 
       {/* Product Image */}
       <div className="relative aspect-square overflow-hidden bg-gray-50">
@@ -46,7 +45,8 @@ export default function ProductCard({product}:{ product:any}) {
             <Image
               src={`http://localhost:8000/storage/${product.imgall[0].img_url}`}
               alt={product.name}
-              fill
+              width={900}
+              height={900}
               className="object-cover transition-transform duration-500 group-hover:scale-110"
               unoptimized
             />
@@ -55,7 +55,7 @@ export default function ProductCard({product}:{ product:any}) {
         {/* Quick Add */}
         <button
           aria-label={`Add ${product.name} to cart`}
-          className="absolute bottom-4 right-4 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-purple-600 text-white opacity-0 shadow-lg transition-all duration-300 hover:bg-purple-700 group-hover:translate-y-0 group-hover:opacity-100"
+          className="absolute bottom-4 right-4 dark:bg-purple-500 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-purple-600 text-white  opacity-0 shadow-lg transition-all duration-300 hover:bg-purple-700 group-hover:translate-y-0 group-hover:opacity-100"
         >
           <ShoppingCart className="h-5 w-5" />
         </button>
@@ -64,12 +64,12 @@ export default function ProductCard({product}:{ product:any}) {
       {/* Content */}
       <div className="p-5">
 
-        <p className="text-xs font-medium uppercase tracking-wide text-purple-600">
+        <p className="text-xs font-medium uppercase tracking-wide dark:text-purple-500 text-purple-600">
           {product.category.name}
         </p>
 
         <Link href={`/shop/${product.id}`}>
-          <h3 className="mt-2 line-clamp-1 font-semibold text-gray-900 transition hover:text-purple-600">
+          <h3 className="mt-2 line-clamp-1 font-semibold text-gray-900 transition dark:text-gray-300 hover:text-purple-600">
             {product.name}
           </h3>
         </Link>

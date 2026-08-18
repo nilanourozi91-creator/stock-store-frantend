@@ -77,7 +77,8 @@ export async function GetAllProdects() {
 
     const data = await res.json();
 
-    return data.data?.data || [];
+    return data.data || [];
+    // console.log(data.data)
   } catch (error) {
     console.error("GetAllProdects error:", error);
     return [];
@@ -99,7 +100,7 @@ export async function GetAllProdect() {
 
     const data = await res.json();
 
-    return data.data || [];
+    return data || [];
   } catch (error) {
     console.error("GetAllProdect error:", error);
     return [];
@@ -149,7 +150,6 @@ export async function GetAllReviews() {
     return [];
   }
 }
-
 export async function GetAllGategories() {
   try {
     const res = await fetch(
@@ -163,11 +163,17 @@ export async function GetAllGategories() {
       throw new Error("Failed to fetch categories");
     }
 
-    const data = await res.json();
+    const response = await res.json();
 
-    return data.data || data || [];
+    console.log("Laravel categories:", response);
+
+    return response;
   } catch (error) {
     console.error("GetAllGategories error:", error);
-    return [];
+    return {
+      data: [],
+    };
   }
+
+
 }

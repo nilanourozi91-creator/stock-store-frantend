@@ -7,7 +7,7 @@ import { GetAllProdects } from "../../lib/prodect.action";
 export default  function PopularProducts({prodeucts}:{prodeucts:any}) {
   console.log(prodeucts);
   return (
-    <section className="bg-[#faf9f7] py-20 sm:py-24">
+    <section className="bg-[#faf9f7] py-20 sm:py-24 dark:bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 
@@ -17,18 +17,18 @@ export default  function PopularProducts({prodeucts}:{prodeucts:any}) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-700">
+            <div className="mb-3 inline-flex items-center gap-2 dark:bg-gray-700 border-purple-300 border dark:text-purple-500 rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-700">
               <Flame className="h-4 w-4" />
               Best Sellers
             </div>
 
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight dark:text-white/50 text-gray-900 sm:text-4xl lg:text-5xl">
               Our most popular
               <br />
-              <span className="text-purple-600">fresh picks.</span>
+              <span className="text-purple-600 dark:text-purple-500">fresh picks.</span>
             </h2>
 
-            <p className="mt-4 max-w-xl text-sm leading-6 text-gray-500 sm:text-base">
+            <p className="mt-4 max-w-xl text-sm leading-6 dark:text-gray-300/70 text-gray-500 sm:text-base">
               Discover the products our customers love the most.
               Fresh, delicious, and ready for your next order.
             </p>
@@ -36,7 +36,7 @@ export default  function PopularProducts({prodeucts}:{prodeucts:any}) {
 
           <Link
             href="/shop"
-            className="group inline-flex w-fit items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm transition hover:border-purple-200 hover:text-purple-600"
+            className="group inline-flex w-fit items-center gap-2 rounded-full border dark:bg-gray-400 dark:border-gray-300 border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-sm transition hover:border-purple-200 hover:text-purple-600"
           >
             View all products
 

@@ -17,7 +17,7 @@ export default function Newsletter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative overflow-hidden rounded-[2rem] bg-purple-600 px-6 py-12 shadow-xl shadow-purple-200 sm:px-10 lg:px-16 lg:py-16"
+          className="relative overflow-hidden rounded-[2rem] dark:shadow-none dark:bg-gray-700 bg-purple-600 px-6 py-12 shadow-xl shadow-purple-200 sm:px-10 lg:px-16 lg:py-16"
         >
           {/* Background Decorations */}
 
@@ -37,14 +37,14 @@ export default function Newsletter() {
 
             {/* Badge */}
 
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full dark:text-white/80 bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
               <Sparkles className="h-4 w-4" />
               Fresh deals in your inbox
             </div>
 
             {/* Heading */}
 
-            <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold leading-tight tracking-tight text-white/80 text-white sm:text-4xl lg:text-5xl">
               Stay fresh,
               <br />
               stay updated.
@@ -52,7 +52,7 @@ export default function Newsletter() {
 
             {/* Description */}
 
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-purple-100 sm:text-base">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-purple-100 sm:text-base dark:text-white/80">
               Subscribe to FreshStock and be the first to know about
               new products, special offers, fresh deals, and exclusive
               discounts.
@@ -71,13 +71,13 @@ export default function Newsletter() {
                   type="email"
                   placeholder="Enter your email address"
                   aria-label="Email address"
-                  className="h-14 w-full rounded-full border-0 bg-white pl-12 pr-5 text-sm text-gray-900 outline-none ring-0 placeholder:text-gray-400 focus:ring-2 focus:ring-white/50"
+                  className="h-14 w-full rounded-full border-0 dark:bg-gray-600 dark:text-gray-300 bg-white pl-12 pr-5 text-sm text-gray-900 outline-none ring-0 placeholder:text-gray-400 focus:ring-2 focus:ring-white/50"
                 />
               </div>
 
               <button
                 type="submit"
-                className="group flex h-14 items-center justify-center gap-2 rounded-full bg-gray-950 px-7 text-sm font-semibold text-white shadow-lg transition hover:bg-gray-900"
+                className="group flex h-14 items-center justify-center gap-2 rounded-full dark:bg-gray-600 bg-gray-950 px-7 text-sm font-semibold text-white shadow-lg transition hover:bg-gray-900"
               >
                 Subscribe
 
@@ -87,7 +87,7 @@ export default function Newsletter() {
 
             {/* Privacy */}
 
-            <p className="mt-5 text-xs text-purple-100">
+            <p className="mt-5 text-xs text-purple-100 dark:text-white/80">
               No spam. Just fresh products, useful deals, and
               occasional FreshStock updates.
             </p>

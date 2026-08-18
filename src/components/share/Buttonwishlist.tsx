@@ -87,7 +87,7 @@ export default function WishlistButton({
         ${
           active
             ? "border-purple-100 bg-purple-100"
-            : "border-gray-100 bg-white hover:bg-purple-50"
+            : "border-gray-100 dark:border-gray-400 bg-white dark:bg-gray-400 hover:bg-purple-50"
         }
         ${
           loading
@@ -101,8 +101,8 @@ export default function WishlistButton({
           h-5 w-5 transition-all
           ${
             active
-              ? "fill-purple-600 text-purple-600"
-              : "text-gray-500 hover:text-purple-600"
+              ? "fill-purple-600  text-purple-600"
+              : "text-gray-500  hover:text-purple-500"
           }
         `}
       />

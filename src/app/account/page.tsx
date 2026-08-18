@@ -11,8 +11,17 @@ Settings,
 ShoppingBag,
 User,
 } from "lucide-react";
-
+import { useEffect, useState } from "react";
+import { GetUser } from "@/lib/getuserinfo";
+ type typeuser={
+    name:string,
+    email:any,
+ }
 export default function AccountPage() {
+      const [user,setuser]=useState<typeuser|null>(null);
+       useEffect(()=>{
+           GetUser().then(setuser);
+       },[])
 return (
 <main className="min-h-screen bg-gray-50">
 
@@ -41,16 +50,16 @@ return (
         <div className="flex items-center gap-4">
 
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-xl font-black text-white">
-            NN
+            {user?.name.toUpperCase().slice(0,1)}
           </div>
 
           <div>
             <h2 className="text-lg font-bold text-white">
-              Nila Nourozi
+              {user?.name}
             </h2>
 
             <p className="mt-1 text-sm text-purple-100">
-              customer@example.com
+              {user?.email}
             </p>
           </div>
 
@@ -58,7 +67,10 @@ return (
 
         <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-purple-700 transition hover:bg-purple-50">
           <Settings className="h-4 w-4" />
+          <Link href={'/profile'}>
+          
           Edit profile
+          </Link>
         </button>
 
       </div>

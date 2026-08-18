@@ -16,8 +16,22 @@ import {
   ShoppingBag,
   User,
 } from "lucide-react";
-
+import { useEffect, useState } from "react";
+import { GetUser } from "@/lib/getuserinfo";
+import { strict } from "assert";
+ type typeuser={
+    name:string,
+    email:any,
+    phoneNumber:Number,
+    password:any,
+    role:string,
+    LastName?:string,
+ }
 export default function ProfilePage() {
+    const [user ,setuser]=useState<typeuser|null>(null);
+      useEffect(()=>{
+          GetUser().then(setuser);
+      },[])
   return (
     <main className="min-h-screen bg-gray-50/40">
 
@@ -66,7 +80,7 @@ export default function ProfilePage() {
                   <div className="relative mx-auto h-24 w-24">
 
                     <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-purple-100 text-3xl font-black text-purple-600">
-                      NN
+                      {user?.name.toUpperCase().slice(0,1)}
                     </div>
 
                     <button
@@ -79,11 +93,11 @@ export default function ProfilePage() {
                   </div>
 
                   <h2 className="mt-5 text-lg font-bold text-gray-900">
-                    Nila Nourozi
+                    {user?.name}
                   </h2>
 
                   <p className="mt-1 text-xs text-gray-500">
-                    FreshStock customer
+                    FreshStock {user?.role}
                   </p>
 
                 </div>
@@ -188,7 +202,7 @@ export default function ProfilePage() {
 
                     <input
                       type="text"
-                      defaultValue="Nila"
+                      defaultValue={`${user?.name}`}
                       className="mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
                     />
 
@@ -202,7 +216,7 @@ export default function ProfilePage() {
 
                     <input
                       type="text"
-                      defaultValue="Nourozi"
+                      defaultValue={`${user?.LastName}`}
                       className="mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
                     />
 
@@ -217,7 +231,7 @@ export default function ProfilePage() {
 
                     <input
                       type="email"
-                      defaultValue="nila@example.com"
+                      defaultValue={`${user?.email}`}
                       className="mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
                     />
 
@@ -232,7 +246,7 @@ export default function ProfilePage() {
 
                     <input
                       type="tel"
-                      defaultValue="+93 700 000 000"
+                      defaultValue={`${user?.phoneNumber}`}
                       className="mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
                     />
 
@@ -361,7 +375,7 @@ export default function ProfilePage() {
 
                     <input
                       type="password"
-                      placeholder="••••••••"
+                      placeholder="•••••••"
                       className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
                     />
 

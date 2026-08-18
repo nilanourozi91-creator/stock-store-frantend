@@ -1,0 +1,119 @@
+{
+  "Navbar": {
+    "home": "首页",
+    "shop": "商城",
+    "categories": "分类",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "login": "登录",
+    "cart": "购物车"
+  },
+
+  "Hero": {
+    "badge": "新鲜商品，美好生活",
+    "title": "新鲜商品",
+    "titleHighlight": "送到您家门口。",
+    "description": "发现新鲜食品、高品质商品和日常必需品，享受实惠的价格。",
+    "shopNow": "立即购物",
+    "exploreCategories": "浏览分类",
+    "products": "新鲜商品",
+    "customers": "满意客户",
+    "delivery": "快速配送"
+  },
+
+  "Categories": {
+    "badge": "按分类购物",
+    "title": "每一个时刻都拥有",
+    "titleHighlight": "新鲜选择。",
+    "description": "探索我们精心挑选的商品分类，找到您需要的一切。",
+    "viewAll": "查看所有分类",
+    "fruits": "水果",
+    "vegetables": "蔬菜",
+    "dairy": "乳制品",
+    "meat": "肉类",
+    "bakery": "烘焙食品",
+    "drinks": "饮料"
+  },
+
+  "PopularProducts": {
+    "badge": "热门商品",
+    "title": "为您精选的",
+    "titleHighlight": "新鲜商品。",
+    "description": "我们的顾客最喜爱的商品。",
+    "viewAll": "查看所有商品",
+    "addToCart": "加入购物车"
+  },
+
+  "PromoBanner": {
+    "badge": "特别优惠",
+    "title": "每天都有新鲜优惠。",
+    "description": "以更优惠的价格购买您喜爱的商品。",
+    "shopNow": "立即购物"
+  },
+
+  "Features": {
+    "fresh": "100% 新鲜商品",
+    "freshDescription": "我们精心挑选新鲜、高品质的商品。",
+    "delivery": "快速配送",
+    "deliveryDescription": "快速将商品送到您的家门口。",
+    "secure": "安全支付",
+    "secureDescription": "您的支付信息受到安全保护。",
+    "support": "全天候支持",
+    "supportDescription": "我们的团队随时准备为您提供帮助。"
+  },
+
+  "WhyChoose": {
+    "badge": "为什么选择 FreshStock？",
+    "title": "值得信赖的",
+    "titleHighlight": "新鲜品质。",
+    "description": "让购买新鲜商品变得简单、可靠且愉快。",
+    "quality": "高品质",
+    "qualityDescription": "只有高品质商品才能进入 FreshStock。",
+    "fresh": "始终新鲜",
+    "freshDescription": "从商店到您家，我们始终关注商品的新鲜度。",
+    "prices": "优惠价格",
+    "pricesDescription": "以您喜欢的价格购买新鲜商品。"
+  },
+
+  "BestSelling": {
+    "badge": "热销商品",
+    "title": "大家都在",
+    "titleHighlight": "购买的商品。",
+    "viewAll": "查看全部",
+    "addToCart": "加入购物车"
+  },
+
+  "SpecialOffers": {
+    "badge": "特别优惠",
+    "title": "为您准备的",
+    "titleHighlight": "新鲜优惠。",
+    "description": "不要错过我们的限时优惠。",
+    "shopNow": "查看优惠"
+  },
+
+  "Testimonials": {
+    "badge": "客户评价",
+    "title": "深受客户",
+    "titleHighlight": "喜爱的 FreshStock。",
+    "description": "看看我们的客户对 FreshStock 的评价。"
+  },
+
+  "Newsletter": {
+    "badge": "保持新鲜",
+    "title": "让新鲜优惠直接进入您的邮箱。",
+    "description": "订阅以获取特别优惠、新商品和 FreshStock 最新消息。",
+    "placeholder": "输入您的邮箱",
+    "subscribe": "订阅"
+  },
+
+  "Footer": {
+    "description": "新鲜商品、高品质食品和日常必需品，直接送到您家。",
+    "quickLinks": "快速链接",
+    "shop": "商城",
+    "categories": "分类",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "followUs": "关注我们",
+    "copyright": "© 2026 FreshStock. 保留所有权利。"
+  }
+}

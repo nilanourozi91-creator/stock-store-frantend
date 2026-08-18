@@ -14,13 +14,23 @@ import {
   Sparkles,
   User,
 } from "lucide-react";
-import { useState } from "react";
+import { useActionState, useState } from "react";
+import { register } from "module";
+import { Rigester } from "@/lib/auth.action";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState(false);
+    
 
+     const [state,action]=  useActionState(Rigester,{
+          data:'', 
+          success:false,
+        });
+        if (state.data !=='someting went wrong') {
+          localStorage.setItem('token',state.data);
+        }
   return (
     <main className="min-h-screen bg-gray-50">
 
@@ -137,7 +147,7 @@ export default function RegisterPage() {
             </div>
 
             {/* Form */}
-            <form className="mt-7 space-y-4">
+            <form className="mt-7 space-y-4" action={action}>
 
               {/* Name */}
               <div>
@@ -155,6 +165,8 @@ export default function RegisterPage() {
 
                   <input
                     id="name"
+                    name="name"
+                    required
                     type="text"
                     placeholder="Your full name"
                     className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-4 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
@@ -180,7 +192,9 @@ export default function RegisterPage() {
 
                   <input
                     id="email"
+                    name="email"
                     type="email"
+                    required
                     placeholder="you@example.com"
                     className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-4 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
                   />
@@ -205,6 +219,8 @@ export default function RegisterPage() {
 
                   <input
                     id="phone"
+                    name="phoneNumber"
+                    required
                     type="tel"
                     placeholder="+93 700 000 000"
                     className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-4 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
@@ -230,6 +246,7 @@ export default function RegisterPage() {
 
                   <input
                     id="password"
+                    name="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="Create a password"
                     className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-12 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
@@ -254,7 +271,7 @@ export default function RegisterPage() {
               </div>
 
               {/* Confirm Password */}
-              <div>
+              {/* <div>
 
                 <label
                   htmlFor="confirmPassword"
@@ -296,7 +313,7 @@ export default function RegisterPage() {
 
                 </div>
 
-              </div>
+              </div> */}
 
               {/* Terms */}
               <div className="flex items-start gap-3 pt-1">
@@ -305,7 +322,7 @@ export default function RegisterPage() {
                   id="terms"
                   type="checkbox"
                   className="mt-0.5 h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500"
-                />
+                />  
 
                 <label
                   htmlFor="terms"

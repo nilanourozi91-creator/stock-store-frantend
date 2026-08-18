@@ -1,6 +1,4 @@
-
 "use client";
-
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,13 +9,22 @@ import {
   ShoppingBag,
   Sparkles,
 } from "lucide-react";
-import { useState } from "react";
-
+import { useActionState, useState } from "react";
+import { Login } from "@/lib/auth.action";
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
-
+  const [state,action]=  useActionState(Login,{
+      data:'', 
+      success:false,
+    });
+        // console.log(state);
+    if (state.data !=='someting went wrong') {
+      localStorage.setItem('token',state.data);
+    }
   return (
+    
     <main className="min-h-screen bg-gray-50">
+    
 
       <div className="grid min-h-screen lg:grid-cols-2">
 
@@ -144,8 +151,8 @@ export default function LoginPage() {
             </div>
 
             {/* Form */}
-            <form className="mt-8 space-y-5">
-
+            <form className="mt-8 space-y-5" action={action}>
+                 
               {/* Email */}
               <div>
 
@@ -162,7 +169,9 @@ export default function LoginPage() {
 
                   <input
                     id="email"
+                    required
                     type="email"
+                    name="email"
                     placeholder="you@example.com"
                     className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-4 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
                   />
@@ -198,6 +207,8 @@ export default function LoginPage() {
 
                   <input
                     id="password"
+                    required
+                    name="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
                     className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-12 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
@@ -244,8 +255,8 @@ export default function LoginPage() {
                 type="submit"
                 className="group flex w-full items-center justify-center gap-2 rounded-xl bg-purple-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-purple-100 transition hover:bg-purple-700"
               >
-                Sign in
-
+               {/* {pending?'please waite':'login '} */}
+                   Login
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
 

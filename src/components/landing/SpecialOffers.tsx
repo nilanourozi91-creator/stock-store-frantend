@@ -36,7 +36,7 @@ const offers = [
 
 export default function SpecialOffers() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24">
+    <section className="py-16 sm:py-20 lg:py-24 dark:bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -48,25 +48,25 @@ export default function SpecialOffers() {
           className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-700">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full dark:border-purple-300 border dark:bg-gray-600 dark:text-purple-500 bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-700">
               <Flame className="h-4 w-4" />
               Special Offers
             </div>
 
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 pt-3 dark:text-white/70 sm:text-4xl lg:text-5xl">
               Fresh deals,
               <br />
-              <span className="text-purple-600">limited time.</span>
+              <span className="text-purple-600 dark:text-purple-500">limited time.</span>
             </h2>
 
-            <p className="mt-4 max-w-xl text-sm leading-6 text-gray-500 sm:text-base">
+            <p className="mt-4 max-w-xl text-sm leading-6 text-gray-500 dark:text-gray-400 sm:text-base">
               Grab your favorite fresh products at special prices before
               these offers disappear.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-sm font-medium text-gray-500">
-            <Clock3 className="h-4 w-4 text-purple-600" />
+          <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+            <Clock3 className="h-4 w-4 text-purple-600 dark:text-purple-500" />
             Offers updated weekly
           </div>
         </motion.div>
@@ -77,7 +77,7 @@ export default function SpecialOffers() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-[2rem] bg-purple-600 p-6 shadow-xl shadow-purple-200 sm:p-8 lg:p-12"
+          className="relative overflow-hidden rounded-[2rem] bg-purple-600 dark:bg-gray-500 dark:shadow-none p-6 shadow-xl shadow-purple-200 sm:p-8 lg:p-12"
         >
           {/* Decorations */}
           <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10" />
@@ -93,15 +93,15 @@ export default function SpecialOffers() {
             {/* Content */}
             <div className="max-w-xl">
 
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 border dark:border-gray-300 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
                 <Sparkles className="h-4 w-4" />
                 Limited-time special
               </div>
 
-              <h3 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <h3 className="mt-6 text-3xl dark:text-purple-500  font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
                 Stock up on
                 <br />
-                <span className="text-purple-100">
+                <span className="text-purple-100 dark:text-purple-500 ">
                   your favorites.
                 </span>
               </h3>
@@ -143,7 +143,7 @@ export default function SpecialOffers() {
 
               <Link
                 href="/shop?offers=true"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full dark:text-purple-500 dark:bg-gray-400 bg-white px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
               >
                 Shop special offers
 
@@ -157,16 +157,16 @@ export default function SpecialOffers() {
               <motion.div
                 whileHover={{ rotate: 0, y: -5 }}
                 initial={{ rotate: 3 }}
-                className="relative w-full max-w-sm rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8"
+                className="relative w-full max-w-sm rounded-[2rem] dark:bg-gray-700 bg-white p-6 shadow-2xl sm:p-8"
               >
                 {/* Card Header */}
                 <div className="flex items-center justify-between">
 
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100">
-                    <ShoppingBag className="h-6 w-6 text-purple-600" />
+                    <ShoppingBag className="h-6 w-6 text-purple-600 dark:text-purple-500" />
                   </div>
 
-                  <span className="rounded-full bg-purple-100 px-3 py-1 text-xs font-bold text-purple-700">
+                  <span className="rounded-full bg-purple-100 px-3 py-1 text-xs font-bold text-purple-700 dark:text-purple-500">
                     TODAY ONLY
                   </span>
 
@@ -175,13 +175,13 @@ export default function SpecialOffers() {
                 {/* Discount */}
                 <div className="mt-7">
 
-                  <p className="text-sm font-medium text-gray-500">
+                  <p className="text-sm font-medium text-gray-600">
                     Selected groceries
                   </p>
 
                   <div className="mt-1 flex items-end gap-2">
 
-                    <span className="text-6xl font-black tracking-tight text-purple-600">
+                    <span className="text-6xl font-black tracking-tight text-purple-600 dark:text-purple-500">
                       40%
                     </span>
 
@@ -231,7 +231,7 @@ export default function SpecialOffers() {
                     </p>
                   </div>
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-600 text-white">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-600 dark:bg-purple-500 text-white">
                     <Flame className="h-5 w-5" />
                   </div>
 
@@ -255,7 +255,7 @@ export default function SpecialOffers() {
                 delay: index * 0.1,
               }}
               whileHover={{ y: -4 }}
-              className="group flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:border-purple-100 hover:shadow-lg hover:shadow-purple-100/40"
+              className="group flex items-center gap-4 rounded-2xl border dark:bg-gray-400 dark:border-gray-400 dark:shadow-none border-gray-100 bg-white p-4 shadow-sm transition-all hover:border-purple-100 hover:shadow-lg hover:shadow-purple-100/40"
             >
 
               <div
@@ -267,7 +267,7 @@ export default function SpecialOffers() {
               </div>
 
               <div className="min-w-0">
-                <h4 className="truncate text-sm font-semibold text-gray-900">
+                <h4 className="truncate text-sm font-semibold text-gray-900 dark:text-gray-400">
                   {offer.title}
                 </h4>
 

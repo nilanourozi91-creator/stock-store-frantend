@@ -8,12 +8,13 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 export default function Hero() {
+  
   return (
-    <section className="relative overflow-hidden bg-[#faf9f7]">
+    <section className="relative overflow-hidden bg-[#faf9f7] dark:bg-gray-800">
 
       {/* Decorative background */}
-      <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-purple-100/60 blur-3xl" />
-      <div className="absolute -bottom-40 left-0 h-96 w-96 rounded-full bg-green-100/50 blur-3xl" />
+      <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-purple-100/60 blur-3xl dark:bg-purple-200/20" />
+      <div className="absolute -bottom-40 left-0 h-96 w-96 rounded-full bg-green-100/50 blur-3xl dark:bg-green-200/20" />
 
       <div className="relative mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-16">
 
@@ -26,7 +27,7 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.10 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+          className="mb-6 inline-flex items-center gap-2 rounded-full border dark:bg-gray-600 border-green-200 dark:text-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
             <Leaf className="h-4 w-4" />
             Freshness you can taste
           </motion.div>
@@ -38,11 +39,11 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight text-gray-950 sm:text-6xl lg:text-7xl">
+          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight dark:text-white/70 text-gray-950 sm:text-6xl lg:text-7xl">
             Fresh Food.
             <br />
 
-            <span className="text-purple-600">
+            <span  className="text-purple-600 dark:text-purple-500">
               Better Living.
             </span>
           </h1>
@@ -54,7 +55,7 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.10 }}
-          className="mt-6 max-w-lg text-base leading-7 text-gray-600 sm:text-lg">
+          className="mt-6 max-w-lg text-base leading-7 text-gray-600 dark:text-gray-300 sm:text-lg">
             Discover fresh groceries, quality ingredients,
             and everyday essentials delivered straight to
             your door.
@@ -70,7 +71,7 @@ export default function Hero() {
 
             <Link
               href="/shop"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-purple-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-200 transition hover:bg-purple-700"
+              className="group inline-flex items-center justify-center gap-2 dark:shadow-none dark:bg-purple-500 rounded-full bg-purple-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-200 transition hover:bg-purple-700"
             >
               Shop Fresh Products
 
@@ -79,7 +80,7 @@ export default function Hero() {
 
             <Link
               href="/categories"
-              className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
+              className="inline-flex items-center justify-center rounded-full border border-gray-200 dark:bg-white/70 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
             >
               Explore Categories
             </Link>
@@ -96,15 +97,15 @@ export default function Hero() {
 
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-green-100">
-                <Check className="h-4 w-4 text-green-600" />
+                <Check className="h-4 w-4 text-green-600 dark:text-green-500" />
               </div>
 
               <div>
-                <p className="text-sm font-semibold text-gray-900">
+                <p className="text-sm font-semibold text-gray-900 dark:text-gray-200">
                   Fresh Products
                 </p>
 
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-500 dark:text-gray-300">
                   Carefully selected
                 </p>
               </div>
@@ -112,15 +113,15 @@ export default function Hero() {
 
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-purple-100">
-                <Truck className="h-4 w-4 text-purple-600" />
+                <Truck className="h-4 w-4 text-purple-600 dark:text-purple-500" />
               </div>
 
               <div>
-                <p className="text-sm font-semibold text-gray-900">
+                <p className="text-sm font-semibold text-gray-900 dark:text-gray-200">
                   Fast Delivery
                 </p>
 
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-500 dark:text-gray-300">
                   Straight to your door
                 </p>
               </div>
@@ -140,7 +141,7 @@ export default function Hero() {
 
            <div className=" rounded-full w-full h-full flex justify-center items-center">
                    <video
-                  src="/images/hero-m.mp4"
+                  src="/images/hero-m3.mp4"
                   autoPlay
                    muted
                    loop
@@ -152,12 +153,12 @@ export default function Hero() {
           </div>
 
           {/* Floating card - Fresh */}
-          <div className="absolute left-0 top-20 z-20 rounded-2xl border border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur-sm sm:left-2 lg:left-0">
+          <div className="absolute left-0 top-20 z-20 rounded-2xl border dark:border-gray-400 dark:bg-gray-500 border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur-sm sm:left-2 lg:left-0">
 
             <div className="flex items-center gap-3">
 
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-100">
-                <Leaf className="h-5 w-5 text-green-600" />
+                <Leaf className="h-5 w-5 text-green-600 dark:text-green-500" />
               </div>
 
               <div>
@@ -175,12 +176,12 @@ export default function Hero() {
           </div>
 
           {/* Floating card - Delivery */}
-          <div className="absolute bottom-16 right-0 z-20 rounded-2xl border border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur-sm">
+          <div className="absolute bottom-16 right-0 z-20 rounded-2xl border dark:bg-gray-500 dark:border-gray-400 border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur-sm">
 
             <div className="flex items-center gap-3">
 
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-100">
-                <Truck className="h-5 w-5 text-purple-600" />
+                <Truck className="h-5 w-5 text-purple-600 dark:text-purple-500" />
               </div>
 
               <div>

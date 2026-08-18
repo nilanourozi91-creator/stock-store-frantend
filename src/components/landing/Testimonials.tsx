@@ -36,7 +36,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-gray-50/70 py-16 sm:py-20 lg:py-24">
+    <section className="bg-gray-50/70 py-16 sm:py-20 lg:py-24 dark:bg-gray-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -47,20 +47,20 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mx-auto mb-14 max-w-2xl text-center"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-700">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-purple-100 dark:border-gray-300 dark:bg-gray-600 dark:text-purple-300 px-4 py-2 text-sm font-semibold text-purple-700">
             <Sparkles className="h-4 w-4" />
             Customer Stories
           </div>
 
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white/50 sm:text-4xl lg:text-5xl">
             Loved by shoppers,
             <br />
-            <span className="text-purple-600">
+            <span className="text-purple-600 dark:text-purple-500">
               trusted every day.
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-gray-500 sm:text-base">
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-gray-500 sm:text-base dark:text-gray-300">
             See why customers choose FreshStock for fresh products,
             great prices, and a better grocery shopping experience.
           </p>
@@ -79,7 +79,7 @@ export default function Testimonials() {
                 delay: index * 0.12,
               }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-[2rem] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-purple-100 hover:shadow-xl hover:shadow-purple-100/50 sm:p-8"
+              className="group relative overflow-hidden rounded-[2rem] border dark:bg-gray-500 dark:hover:shadow-none border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-purple-100 hover:shadow-xl hover:shadow-purple-100/50 sm:p-8"
             >
               {/* Quote decoration */}
               <div className="absolute right-6 top-6 opacity-10">
@@ -99,7 +99,7 @@ export default function Testimonials() {
               </div>
 
               {/* Review */}
-              <p className="relative mt-6 text-sm leading-7 text-gray-600 sm:text-base">
+              <p className="relative mt-6 text-sm leading-7 text-gray-600 dark:text-gray-200 sm:text-base">
                 “{testimonial.review}”
               </p>
 
@@ -107,7 +107,7 @@ export default function Testimonials() {
               <div className="mt-8 flex items-center gap-4 border-t border-gray-100 pt-6">
 
                 {/* Avatar */}
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-700 transition-colors duration-300 group-hover:bg-purple-600 group-hover:text-white">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-700  dark:hover:bg-purple-500 transition-colors duration-300 group-hover:bg-purple-600 group-hover:text-white">
                   {testimonial.avatar}
                 </div>
 
@@ -116,14 +116,14 @@ export default function Testimonials() {
                     {testimonial.name}
                   </h3>
 
-                  <p className="mt-1 text-xs text-gray-400">
+                  <p className="mt-1 text-xs text-gray-400 dark:text-gray-200">
                     {testimonial.role}
                   </p>
                 </div>
               </div>
 
               {/* Purple accent */}
-              <div className="absolute bottom-0 left-8 h-1 w-10 rounded-full bg-purple-600 transition-all duration-300 group-hover:w-20" />
+              <div className="absolute bottom-0 left-8 h-1 w-10 rounded-full bg-purple-600 dark:bg-purple-500 transition-all duration-300 group-hover:w-20" />
             </motion.div>
           ))}
         </div>
