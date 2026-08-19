@@ -243,7 +243,6 @@ export default function ProfilePage() {
                       <Phone className="h-4 w-4 text-gray-400" />
                       Phone number
                     </label>
-
                     <input
                       type="tel"
                       defaultValue={`${user?.phoneNumber}`}
