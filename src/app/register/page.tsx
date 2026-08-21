@@ -14,10 +14,12 @@ import {
   Sparkles,
   User,
 } from "lucide-react";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { register } from "module";
 import { Rigester } from "@/lib/auth.action";
-
+import { redirect } from "next/navigation";
+import cookie from "js-cookie";
+import { useRouter } from "next/navigation";
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] =
@@ -28,11 +30,25 @@ export default function RegisterPage() {
           data:'', 
           success:false,
         });
-        if (state.data !=='someting went wrong') {
-          localStorage.setItem('token',state.data);
-        }
+        // if (state.data !=='someting went wrong') {
+        //   cookie.set('token',state.data,{expires:7});
+         
+        // }
+            const router = useRouter();
+
+          useEffect(() => {
+    if (state.success && state.data) {
+      cookie.set("token", state.data, {
+        expires: 7,
+        path: "/",
+      });
+
+      router.push("/");
+    }
+  }, [state, router]);
+
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 text-black">
 
       <div className="grid min-h-screen lg:grid-cols-2">
 

@@ -17,7 +17,7 @@ import { GetAllProdects, GetAllReviews, GetSingleProdect } from '@/lib/prodect.a
    const prodect=prodects.find((item:any)=>item.id===id);
    const productReviews = reviews.filter(
   (item: any) => Number(item.pro_id) === Number(id));
-  console.log(reviews)
+  // console.log(reviews)
   return (
      <main className="min-h-screen bg-white">
 

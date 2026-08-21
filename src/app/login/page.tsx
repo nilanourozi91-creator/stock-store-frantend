@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useActionState, useState } from "react";
+import Cookie from "js-cookie";
 import { Login } from "@/lib/auth.action";
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,11 +20,11 @@ export default function LoginPage() {
     });
         // console.log(state);
     if (state.data !=='someting went wrong') {
-      localStorage.setItem('token',state.data);
+      Cookie.set('token',state.data);
     }
   return (
     
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 text-black">
     
 
       <div className="grid min-h-screen lg:grid-cols-2">

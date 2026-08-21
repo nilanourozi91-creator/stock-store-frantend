@@ -1,6 +1,7 @@
 'use client'
+import Cookie from "js-cookie";
  export async function GetUser() {
-    const token=localStorage.getItem('token');
+    const token=Cookie.get('token');
     if (!token) {
         return null;
     }

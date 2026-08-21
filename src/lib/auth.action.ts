@@ -4,10 +4,8 @@ import { join } from "path";
 import { json } from "stream/consumers";
 
 export async function Login(
-    // {prevState,formData}:
-    // {
         prevState:unknown,formData:FormData
-    // }
+   
     ) {
   try {
     console.log(formData);
@@ -25,10 +23,7 @@ export async function Login(
     console.log(response);
     return response;
   } catch (error) {
-    console.error( error);
-    return {
-      error
-    };
+    return null;
   }
 
 
@@ -50,10 +45,7 @@ export async function Rigester(prevState:unknown,formData:FormData) {
     console.log(response);
     return response;
   } catch (error) {
-    console.error( error);
-    return {
-      error
-    };
+    return null;
   }
        
 
@@ -73,10 +65,7 @@ export async function GetUserInfomations(token:string) {
     console.log(response);
     return response;
   } catch (error) {
-    console.error( error);
-    return {
-      error
-    };
+    return null;
   }
        
 

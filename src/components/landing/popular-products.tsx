@@ -5,7 +5,7 @@ import ProductCard from "./product-card";
 import { motion } from "motion/react";
 import { GetAllProdects } from "../../lib/prodect.action";
 export default  function PopularProducts({prodeucts}:{prodeucts:any}) {
-  console.log(prodeucts);
+  // console.log(prodeucts);
   return (
     <section className="bg-[#faf9f7] py-20 sm:py-24 dark:bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
