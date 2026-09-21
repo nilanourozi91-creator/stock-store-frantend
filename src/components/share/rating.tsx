@@ -12,13 +12,13 @@ function RatingProducts({data}:{data:any}) {
 
                   <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                       
-                  <span className="font-bold text-gray-900">
+                  <span className="font-bold text-gray-900 dark:text-gray-200">
                     {data[0]?.rating}
                   </span>
 
                 </div>
 
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-gray-400 dark:text-gray-200">
                   {data[0]?.rating} customer reviews
                 </span>
                     {/* </div> */}
@@ -27,7 +27,7 @@ function RatingProducts({data}:{data:any}) {
 
                 <span className="h-1 w-1 rounded-full bg-gray-300" />
 
-                <span className="text-sm font-medium text-green-600">
+                <span className="text-sm font-medium text-green-600 dark:text-green-400">
                   In stock
                 </span>
 

@@ -37,7 +37,7 @@ export default function CategoriesPage({
   }, [categories, search]);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-gray-600">
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-purple-600">
@@ -59,13 +59,13 @@ export default function CategoriesPage({
               Fresh products for everyone
             </div>
 
-            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl dark:text-gray-200 lg:text-6xl">
               Explore Our
               <br />
               Fresh Categories
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-purple-100 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 dark:text-gray-300 text-purple-100 sm:text-lg">
               Find everything you need in one place. From fresh fruits
               and vegetables to dairy, bakery and everyday essentials.
             </p>
@@ -93,7 +93,7 @@ export default function CategoriesPage({
                   setSearch(event.target.value)
                 }
                 placeholder="Search categories..."
-                className="w-full rounded-2xl border border-gray-200 bg-white py-4 pl-12 pr-5 text-sm text-gray-900 shadow-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
+                className="w-full rounded-2xl border border-gray-200 bg-white dark:bg-gray-700 dark:border-gray-500 py-4 pl-12 pr-5 text-sm text-gray-900 shadow-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
               />
 
             </div>
@@ -104,17 +104,17 @@ export default function CategoriesPage({
 
             <div>
 
-              <p className="text-sm font-semibold text-purple-600">
+              <p className="text-sm font-semibold text-purple-600 dark:text-gray-200">
                 Shop by category
               </p>
 
-              <h2 className="mt-1 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              <h2 className="mt-1 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
                 Everything fresh, organized for you.
               </h2>
 
             </div>
 
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 dark:text-gray-200">
               {filteredCategories.length} categories
             </p>
 
@@ -130,11 +130,11 @@ export default function CategoriesPage({
                 <Link
                   key={category.id}
                   href={`/shop?category=${category.id}`}
-                  className="group relative overflow-hidden rounded-[1.5rem] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-purple-100 hover:shadow-xl hover:shadow-purple-100/60"
+                  className="group relative overflow-hidden rounded-[1.5rem] border border-gray-100 bg-white dark:shadow-none dark:border-gray-500 dark:bg-gray-700 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-purple-100 hover:shadow-xl hover:shadow-purple-100/60"
                 >
 
                   {/* Decoration */}
-                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-50 opacity-0 transition-all duration-500 group-hover:scale-150 group-hover:opacity-100" />
+                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-50 dark:bg-gray-500 opacity-0 transition-all duration-500 group-hover:scale-150 group-hover:opacity-100" />
 
                   <div className="relative">
 
@@ -146,11 +146,11 @@ export default function CategoriesPage({
                     {/* Content */}
                     <div className="mt-6">
 
-                      <h3 className="text-lg font-bold text-gray-900">
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-gray-200">
                         {category.name}
                       </h3>
 
-                      <p className="mt-2 min-h-10 text-sm leading-5 text-gray-500">
+                      <p className="mt-2 min-h-10 text-sm leading-5 text-gray-500 dark:text-gray-300">
                         {category.description ||
                           `Fresh ${category.name} products`}
                       </p>
@@ -160,7 +160,7 @@ export default function CategoriesPage({
                     {/* Bottom */}
                     <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
 
-                      <span className="text-sm font-medium text-gray-400">
+                      <span className="text-sm font-medium text-gray-400 dark:text-gray-300">
                         {category.count ?? 0} products
                       </span>
 
@@ -209,7 +209,7 @@ export default function CategoriesPage({
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          <div className="relative overflow-hidden rounded-[2rem] bg-purple-600 px-6 py-12 text-center shadow-xl shadow-purple-100 sm:px-10 lg:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] bg-purple-600 dark:shadow-none px-6 py-12 text-center shadow-xl shadow-purple-100 sm:px-10 lg:py-16">
 
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10" />
 
@@ -217,17 +217,17 @@ export default function CategoriesPage({
 
             <div className="relative">
 
-              <h2 className="text-3xl font-bold text-white sm:text-4xl">
+              <h2 className="text-3xl font-bold text-white sm:text-4xl dark:text-gray-200">
                 Ready to fill your basket?
               </h2>
 
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-purple-100 sm:text-base">
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-purple-100 sm:text-base dark:text-gray-300">
                 Discover fresh products and great prices waiting for you.
               </p>
 
               <Link
                 href="/"
-                className="mt-7 mr-2 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
+                className="mt-7 mr-2 inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-700 dark:text-gray-200 px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to home
@@ -235,7 +235,7 @@ export default function CategoriesPage({
 
               <Link
                 href="/shop"
-                className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
+                className="mt-7 inline-flex items-center gap-2 rounded-full dark:bg-gray-700 dark:text-gray-200 bg-white px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
               >
                 Shop all products
                 <ArrowRight className="h-4 w-4" />

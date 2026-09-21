@@ -9,11 +9,13 @@ import {
   Menu,
   X,
 } from "lucide-react";
+
 import { useState } from "react";
 import ThemeToggle from "../theme-toggle";
 import Login from "../share/header/login";
 import Getuserinfo from "../share/header/getuserinfo";
 import LoginBtn from "../share/header/login";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -83,7 +85,7 @@ export default function Navbar() {
             <ShoppingCart className="h-5 w-5" />
 
             <span className="absolute right-0 top-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-purple-600 px-1 text-[10px] font-bold text-white">
-              0
+             0
             </span>
           </Link>
 
@@ -172,14 +174,13 @@ export default function Navbar() {
 
             <div className="mt-3 grid grid-cols-2 gap-3 border-t pt-4">
 
-              <Link
+              {/* <Link
                 href="/login"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full border border-gray-200 py-2.5 text-sm font-medium  dark:hover:bg-gray-700"
-              >
+                className="flex items-center justify-center gap-2 rounded-full border border-gray-200 py-2.5 text-sm font-medium  text-black dark:text-white dark:hover:bg-gray-700">
                 <User className="h-4 w-4" />
                 Login
-              </Link>
+              </Link> */}
 
               <Link
                 href="/register"

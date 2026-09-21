@@ -20,6 +20,7 @@ import { Rigester } from "@/lib/auth.action";
 import { redirect } from "next/navigation";
 import cookie from "js-cookie";
 import { useRouter } from "next/navigation";
+// import { registerSchema } from "@/lib/validation/auth";
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] =
@@ -30,14 +31,10 @@ export default function RegisterPage() {
           data:'', 
           success:false,
         });
-        // if (state.data !=='someting went wrong') {
-        //   cookie.set('token',state.data,{expires:7});
-         
-        // }
+        console.log(state);
             const router = useRouter();
-
           useEffect(() => {
-    if (state.success && state.data) {
+    if (state.data) {
       cookie.set("token", state.data, {
         expires: 7,
         path: "/",
@@ -45,8 +42,29 @@ export default function RegisterPage() {
 
       router.push("/");
     }
-  }, [state, router]);
+   }, [state, router]);
 
+
+     const handleRegister = () => {
+    const result = registerSchema.safeParse({
+      name: "A",
+      email: "wrong-email",
+      password: "123",
+    });
+
+    if (!result.success) {
+      console.log(result.error.flatten().fieldErrors);
+      return;
+    }
+
+    console.log("Validation passed!");
+  };
+  //  localStorage.setItem('token',state.data);
+    // if (state.data !=='someting went wrong') {
+      // Cookie.set('token',state.data);
+      // localStorage.setItem('token',state.data);
+    // }
+  //  console.log(state);
   return (
     <main className="min-h-screen bg-gray-50 text-black">
 

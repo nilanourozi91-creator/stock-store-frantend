@@ -21,16 +21,16 @@
 //      return 'someting went wrong';
 //    }
 // }
-// export async function GetSingleProdect(id:any) {
-//    try {
-//      const response = await fetch(`http://localhost:8000/api/products/${id}`);
-//      const data = await response.json();
-//      return data||[];
-//    } catch (error) {
-//      console.error(error);
-//      return 'someting went wrong';
-//    }
-// }
+export async function GetSingleProdect(id:any) {
+   try {
+     const response = await fetch(`http://localhost:8000/api/products/${id}`);
+     const data = await response.json();
+     return data||[];
+   } catch (error) {
+     console.error(error);
+     return 'someting went wrong';
+   }
+}
 // export async function GetAllReviews() {
 
 
@@ -107,27 +107,27 @@ export async function GetAllProdect() {
   }
 }
 
-export async function GetSingleProdect(id: number | string) {
-  try {
-    const response = await fetch(
-      `http://localhost:8000/api/products/${id}`,
-      {
-        cache: "no-store",
-      }
-    );
+// export async function GetSingleProdect(id: any) {
+//   try {
+//     const response = await fetch(
+//       `http://localhost:8000/api/products/${id}`,
+//       {
+//         cache: "no-store",
+//       }
+//       );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch product");
-    }
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch product");
+//     }
 
-    const data = await response.json();
+//     const data = await response.json();
 
-    return data;
-  } catch (error) {
-    console.error("GetSingleProdect error:", error);
-    return null;
-  }
-}
+//     return data.data;
+//   } catch (error) {
+//     console.error("GetSingleProdect error:", error);
+//     return null;
+//   }
+// }
 
 export async function GetAllReviews() {
   try {

@@ -58,7 +58,7 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-gray-600">
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-purple-600">
@@ -84,13 +84,13 @@ export default function AboutPage() {
                 About FreshStock
               </div>
 
-              <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-black leading-tight tracking-tight text-white dark:text-gray-200 sm:text-5xl lg:text-6xl">
                 Fresh food.
                 <br />
                 Better living.
               </h1>
 
-              <p className="mt-6 max-w-lg text-base leading-7 text-purple-100 sm:text-lg">
+              <p className="mt-6 max-w-lg text-base leading-7 dark:text-gray-300 text-purple-100 sm:text-lg">
                 FreshStock makes everyday grocery shopping simple,
                 convenient and affordable. We bring fresh products
                 together in one place so you can spend less time
@@ -99,7 +99,7 @@ export default function AboutPage() {
 
               <Link
                 href="/shop"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-600 dark:text-gray-200 px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
               >
                 Start shopping
 
@@ -114,7 +114,7 @@ export default function AboutPage() {
               <div className="relative w-full max-w-md">
 
                 {/* Main card */}
-                <div className="relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8">
+                <div className="relative overflow-hidden rounded-[2rem] bg-white p-6 shadow-2xl sm:p-8 dark:bg-gray-600">
 
                   <div className="flex items-center justify-between">
 
@@ -130,17 +130,17 @@ export default function AboutPage() {
 
                   <div className="mt-8">
 
-                    <p className="text-sm font-medium text-gray-400">
+                    <p className="text-sm font-medium text-gray-400 dark:text-gray-300">
                       Our promise
                     </p>
 
-                    <h2 className="mt-2 text-3xl font-black tracking-tight text-gray-900">
+                    <h2 className="mt-2 text-3xl font-black tracking-tight text-gray-900 dark:text-gray-100">
                       Good food,
                       <br />
                       made simple.
                     </h2>
 
-                    <p className="mt-4 text-sm leading-6 text-gray-500">
+                    <p className="mt-4 text-sm leading-6 text-gray-500 dark:text-gray-200">
                       Quality products, fair prices and a shopping
                       experience designed around you.
                     </p>
@@ -171,7 +171,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Floating card */}
-                <div className="absolute -bottom-5 -left-5 rounded-2xl bg-white px-5 py-4 shadow-xl sm:-left-8">
+                <div className="absolute -bottom-5 -left-5 rounded-2xl bg-white dark:bg-gray-500 px-5 py-4 shadow-xl sm:-left-8">
 
                   <div className="flex items-center gap-3">
 
@@ -180,11 +180,11 @@ export default function AboutPage() {
                     </div>
 
                     <div>
-                      <p className="text-sm font-bold text-gray-900">
+                      <p className="text-sm font-bold text-gray-900 dark:text-gray-100">
                         100% Fresh
                       </p>
 
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-gray-400 dark:text-gray-200">
                         Quality matters
                       </p>
                     </div>
@@ -213,17 +213,17 @@ export default function AboutPage() {
             {/* Text */}
             <div>
 
-              <p className="text-sm font-semibold text-purple-600">
+              <p className="text-sm font-semibold text-purple-600 dark:text-gray-300">
                 Our story
               </p>
 
-              <h2 className="mt-2 text-3xl font-black tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="mt-2 text-3xl font-black tracking-tight text-gray-900 sm:text-4xl dark:text-gray-200">
                 We believe fresh food
                 <br className="hidden sm:block" />
                 should be easy to find.
               </h2>
 
-              <div className="mt-6 space-y-4 text-sm leading-7 text-gray-500 sm:text-base">
+              <div className="mt-6 space-y-4 text-sm leading-7 text-gray-500 sm:text-base dark:text-gray-300">
 
                 <p>
                   FreshStock was created with a simple idea: grocery
@@ -249,54 +249,54 @@ export default function AboutPage() {
             {/* Story card */}
             <div className="relative">
 
-              <div className="rounded-[2rem] bg-purple-50 p-6 sm:p-8">
+              <div className="rounded-[2rem] bg-purple-50 p-6 sm:p-8 dark:bg-gray-700">
 
                 <div className="grid grid-cols-2 gap-4">
 
-                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                  <div className="rounded-2xl bg-white dark:bg-gray-500 p-6 shadow-sm">
                     <span className="text-4xl">🥬</span>
 
-                    <h3 className="mt-4 font-bold text-gray-900">
+                    <h3 className="mt-4 font-bold text-gray-900 dark:text-gray-200">
                       Fresh Produce
                     </h3>
 
-                    <p className="mt-2 text-sm leading-5 text-gray-500">
+                    <p className="mt-2 text-sm leading-5 text-gray-500 dark:text-gray-300">
                       Carefully selected products for your everyday needs.
                     </p>
                   </div>
 
-                  <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
+                  <div className="mt-8 rounded-2xl bg-white  dark:bg-gray-500 p-6 shadow-sm">
                     <span className="text-4xl">🛒</span>
 
-                    <h3 className="mt-4 font-bold text-gray-900">
+                    <h3 className="mt-4 font-bold text-gray-900 dark:text-gray-300">
                       Easy Shopping
                     </h3>
 
-                    <p className="mt-2 text-sm leading-5 text-gray-500">
+                    <p className="mt-2 text-sm leading-5 dark:text-gray-300 text-gray-500">
                       Everything you need, organized in one place.
                     </p>
                   </div>
 
-                  <div className="-mt-4 rounded-2xl bg-white p-6 shadow-sm">
+                  <div className="-mt-4 rounded-2xl bg-white  dark:bg-gray-500 p-6 shadow-sm">
                     <span className="text-4xl">💜</span>
 
-                    <h3 className="mt-4 font-bold text-gray-900">
+                    <h3 className="mt-4 font-bold text-gray-900 dark:text-gray-200">
                       Made for You
                     </h3>
 
-                    <p className="mt-2 text-sm leading-5 text-gray-500">
+                    <p className="mt-2 text-sm leading-5 dark:text-gray-300 text-gray-500">
                       A shopping experience designed around customers.
                     </p>
                   </div>
 
-                  <div className="rounded-2xl bg-white p-6 shadow-sm">
+                  <div className="rounded-2xl bg-white  dark:bg-gray-500 p-6 shadow-sm">
                     <span className="text-4xl">🚚</span>
 
-                    <h3 className="mt-4 font-bold text-gray-900">
+                    <h3 className="mt-4 font-bold text-gray-900 dark:text-gray-200">
                       Convenient
                     </h3>
 
-                    <p className="mt-2 text-sm leading-5 text-gray-500">
+                    <p className="mt-2 text-sm leading-5 dark:text-gray-300 text-gray-500">
                       Simple ordering and convenient delivery.
                     </p>
                   </div>
@@ -314,21 +314,21 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-gray-50 py-20 sm:py-24">
+      <section className="bg-gray-50 py-20 sm:py-24 dark:bg-gray-700">
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="mx-auto max-w-2xl text-center">
 
-            <p className="text-sm font-semibold text-purple-600">
+            <p className="text-sm font-semibold text-purple-600 dark:text-gray-300">
               What we stand for
             </p>
 
-            <h2 className="mt-2 text-3xl font-black tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-black tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
               Our values
             </h2>
 
-            <p className="mt-4 text-sm leading-6 text-gray-500 sm:text-base">
+            <p className="mt-4 text-sm leading-6 text-gray-500 dark:text-gray-300 sm:text-base">
               Everything we do is guided by a few simple principles.
             </p>
 
@@ -343,7 +343,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={value.title}
-                  className="group rounded-[1.5rem] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-100/60"
+                  className="group rounded-[1.5rem] border border-gray-100 dark:bg-gray-600 dark:border-gray-500 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-100/60"
                 >
 
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 transition-colors group-hover:bg-purple-600">
@@ -352,11 +352,11 @@ export default function AboutPage() {
 
                   </div>
 
-                  <h3 className="mt-6 font-bold text-gray-900">
+                  <h3 className="mt-6 font-bold text-gray-900 dark:text-gray-200">
                     {value.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-gray-500">
+                  <p className="mt-3 text-sm leading-6 text-gray-500 dark:text-gray-300">
                     {value.description}
                   </p>
 
@@ -392,11 +392,11 @@ export default function AboutPage() {
                 }`}
               >
 
-                <p className="text-4xl font-black tracking-tight text-white">
+                <p className="text-4xl font-black tracking-tight text-white dark:text-gray-200">
                   {stat.value}
                 </p>
 
-                <p className="mt-2 text-sm text-purple-100">
+                <p className="mt-2 text-sm text-purple-100 dark:text-gray-300">
                   {stat.label}
                 </p>
 
@@ -415,7 +415,7 @@ export default function AboutPage() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          <div className="relative overflow-hidden rounded-[2rem] bg-purple-600 px-6 py-14 text-center shadow-xl shadow-purple-100 sm:px-10 lg:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] dark:shadow-none bg-purple-600 px-6 py-14 text-center shadow-xl shadow-purple-100 sm:px-10 lg:py-16">
 
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10" />
 
@@ -424,21 +424,21 @@ export default function AboutPage() {
             <div className="relative mx-auto max-w-2xl">
 
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
-                <Heart className="h-7 w-7 text-white" />
+                <Heart className="h-7 w-7 text-white dark:text-gray-200" />
               </div>
 
-              <h2 className="mt-6 text-3xl font-bold text-white sm:text-4xl">
+              <h2 className="mt-6 text-3xl font-bold dark:text-gray-200 text-white sm:text-4xl">
                 Let&apos;s make grocery shopping better.
               </h2>
 
-              <p className="mt-4 text-sm leading-6 text-purple-100 sm:text-base">
+              <p className="mt-4 text-sm leading-6 text-purple-100 sm:text-base dark:text-gray-300">
                 Discover fresh products, great prices and everything
                 you need for your everyday life.
               </p>
 
               <Link
                 href="/shop"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-600 dark:text-gray-200 px-6 py-3.5 text-sm font-semibold text-purple-700 shadow-lg transition hover:bg-purple-50"
               >
                 Explore FreshStock
 

@@ -14,8 +14,10 @@ import Image from "next/image";
 import prodectprice from "./prodectprice";
 import ProdectP from "./prodectprice";
 import WishlistButton from "../share/Buttonwishlist";
+import { useCart } from "@/context/CartContext";
 export default function ProductCard({product}:{ product:any}) {
     // console.log(product.reviews.rating);
+    const { addToCart } = useCart();
   return (
     <Card className="group relative py-0 overflow-hidden dark:bg-gray-700 dark:shadow-none border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/60">
 
@@ -53,12 +55,17 @@ export default function ProductCard({product}:{ product:any}) {
         </Link>
 
         {/* Quick Add */}
-        <button
+        <div
           aria-label={`Add ${product.name} to cart`}
           className="absolute bottom-4 right-4 dark:bg-purple-500 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-purple-600 text-white  opacity-0 shadow-lg transition-all duration-300 hover:bg-purple-700 group-hover:translate-y-0 group-hover:opacity-100"
         >
+          <button className=" cursor-pointer" 
+           onClick={() => addToCart(product)}
+            >
           <ShoppingCart className="h-5 w-5" />
-        </button>
+            {/* Add to Cart */}
+          </button>
+        </div>
       </div>
 
       {/* Content */}

@@ -15,12 +15,12 @@ export default function StatCard({
   icon: Icon,
 }: StatCardProps) {
   return (
-    <div className="group relative overflow-hidden rounded-[1.5rem] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-100/60">
+    <div className="group relative overflow-hidden dark:bg-gray-700 dark:text-white dark:border-gray-500 dark:hover:shadow-none rounded-[1.5rem] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-100/60">
 
       {/* Background decoration */}
-      <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-50 transition-transform duration-500 group-hover:scale-150" />
+      <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-50 dark:bg-gray-600 transition-transform duration-500 group-hover:scale-150" />
 
-      <div className="absolute -bottom-12 -left-12 h-24 w-24 rounded-full bg-purple-50/60" />
+      <div className="absolute -bottom-12 -left-12 h-24 w-24 rounded-full bg-purple-50/60 dark:bg-gray-500" />
 
       {/* Content */}
       <div className="relative">
@@ -44,11 +44,11 @@ export default function StatCard({
         {/* Value */}
         <div className="mt-6">
 
-          <p className="text-sm font-medium text-gray-500">
+          <p className="text-sm font-medium text-gray-500 dark:text-gray-300">
             {title}
           </p>
 
-          <h3 className="mt-2 text-3xl font-black tracking-tight text-gray-900">
+          <h3 className="mt-2 text-3xl font-black tracking-tight text-gray-900 dark:text-gray-200">
             {value}
           </h3>
 
@@ -57,7 +57,7 @@ export default function StatCard({
         {/* Bottom */}
         <div className="mt-5 flex items-center justify-between border-t border-gray-100 pt-4">
 
-          <span className="text-xs text-gray-400">
+          <span className="text-xs text-gray-400 dark:text-gray-300">
             Compared to last month
           </span>
 

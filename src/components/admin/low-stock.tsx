@@ -61,9 +61,9 @@ function getStatusStyles(status: string) {
 
 export default function LowStock() {
   return (
-    <div className="rounded-[1.5rem] border border-gray-100 bg-white p-6 shadow-sm">
+    <div className="rounded-[1.5rem] border border-gray-100 bg-white dark:bg-gray-700 dark:border-gray-500 p-6 shadow-sm">
 
-      {/* Header */}
+      {/* header */}
       <div className="flex items-start justify-between">
 
         <div className="flex items-start gap-3">
@@ -73,11 +73,11 @@ export default function LowStock() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-gray-900">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-gray-300">
               Low Stock
             </h2>
 
-            <p className="mt-1 text-sm text-gray-500">
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
               Products that need attention
             </p>
           </div>
@@ -90,7 +90,7 @@ export default function LowStock() {
 
       </div>
 
-      {/* Products */}
+      {/* prodects */}
       <div className="mt-6 space-y-5">
 
         {products.map((product) => {
@@ -107,7 +107,7 @@ export default function LowStock() {
           return (
             <div
               key={product.name}
-              className="rounded-2xl border border-gray-100 p-4 transition hover:border-purple-100 hover:bg-purple-50/20"
+              className="rounded-2xl border border-gray-100 p-4 transition dark:border-gray-500 hover:border-purple-100 hover:bg-purple-50/20"
             >
 
               {/* Product top */}
@@ -121,7 +121,7 @@ export default function LowStock() {
 
                   <div className="min-w-0">
 
-                    <p className="truncate text-sm font-semibold text-gray-900">
+                    <p className="truncate text-sm font-semibold text-gray-900 dark:text-gray-400">
                       {product.name}
                     </p>
 

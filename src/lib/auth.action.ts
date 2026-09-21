@@ -20,7 +20,7 @@ export async function Login(
       }
     );
     const response = await data.json();
-    console.log(response);
+    
     return response;
   } catch (error) {
     return null;
@@ -42,7 +42,6 @@ export async function Rigester(prevState:unknown,formData:FormData) {
       }
     );
     const response = await data.json();
-    console.log(response);
     return response;
   } catch (error) {
     return null;
@@ -56,7 +55,7 @@ export async function GetUserInfomations(token:string) {
       {
        
         headers:{
-           Authorization:`Bearer ${token}`,
+           Authorization:`Bearer ${token.toString()}`,
             Accept:'application/json',
         },
       }

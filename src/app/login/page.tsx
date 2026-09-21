@@ -18,15 +18,17 @@ export default function LoginPage() {
       data:'', 
       success:false,
     });
-        // console.log(state);
-    if (state.data !=='someting went wrong') {
+        console.log(state);
+    if (state.data) {
       Cookie.set('token',state.data);
+    
+      // localStorage.setItem('token',state.data);
     }
+    
   return (
     
     <main className="min-h-screen bg-gray-50 text-black">
-    
-
+        {state.success == false ?'someting went worng':'data get it successfully'}
       <div className="grid min-h-screen lg:grid-cols-2">
 
         {/* Left - Brand */}

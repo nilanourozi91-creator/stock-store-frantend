@@ -158,18 +158,18 @@ export default function OrdersPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 dark:bg-gray-600">
 
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
         <div>
 
-          <h1 className="text-2xl font-black tracking-tight text-gray-900">
+          <h1 className="text-2xl font-black tracking-tight text-gray-900 dark:text-gray-100">
             Orders
           </h1>
 
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
             Manage and track all FreshStock orders.
           </p>
 
@@ -177,7 +177,7 @@ export default function OrdersPage() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
+          className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 dark:bg-purple-600 dark:border-none dark:text-gray-300 bg-white px-5 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
         >
           <Truck className="h-4 w-4" />
           Shipping Report
@@ -189,11 +189,11 @@ export default function OrdersPage() {
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
         {/* Total */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Total Orders
             </p>
 
@@ -203,7 +203,7 @@ export default function OrdersPage() {
 
           </div>
 
-          <p className="mt-4 text-2xl font-black text-gray-900">
+          <p className="mt-4 text-2xl font-black text-gray-900 dark:text-gray-100">
             {totalOrders}
           </p>
 
@@ -214,11 +214,11 @@ export default function OrdersPage() {
         </div>
 
         {/* Pending */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Pending
             </p>
 
@@ -232,18 +232,18 @@ export default function OrdersPage() {
             {pendingOrders}
           </p>
 
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
             Need attention
           </p>
 
         </div>
 
         {/* Delivered */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Delivered
             </p>
 
@@ -257,18 +257,18 @@ export default function OrdersPage() {
             {deliveredOrders}
           </p>
 
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
             Successfully delivered
           </p>
 
         </div>
 
         {/* Cancelled */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Cancelled
             </p>
 
@@ -282,7 +282,7 @@ export default function OrdersPage() {
             {cancelledOrders}
           </p>
 
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
             Cancelled orders
           </p>
 
@@ -291,7 +291,7 @@ export default function OrdersPage() {
       </div>
 
       {/* Filters */}
-      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
         <div className="flex flex-col gap-3 lg:flex-row">
 
@@ -307,7 +307,7 @@ export default function OrdersPage() {
                 setSearch(e.target.value)
               }
               placeholder="Search order ID or customer..."
-              className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-11 pr-4 text-sm outline-none transition focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-100"
+              className="h-11 w-full rounded-xl border border-gray-200 dark:text-gray-100 bg-gray-50 pl-11 dark:bg-gray-700 dark:border-gray-500 pr-4 text-sm outline-none transition focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-100"
             />
 
           </div>
@@ -318,7 +318,7 @@ export default function OrdersPage() {
             onChange={(e) =>
               setStatus(e.target.value)
             }
-            className="h-11 rounded-xl border border-gray-200 bg-gray-50 px-4 text-sm font-semibold text-gray-600 outline-none focus:border-purple-500"
+            className="h-11 rounded-xl border border-gray-200 dark:text-gray-100 dark:bg-gray-700 dark:border-gray-500 bg-gray-50 px-4 text-sm font-semibold text-gray-600 outline-none focus:border-purple-500"
           >
             <option value="All">
               All Status
@@ -347,7 +347,7 @@ export default function OrdersPage() {
 
           <button
             type="button"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 text-sm font-bold text-gray-600 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
+            className="inline-flex h-11 items-center justify-center dark:text-gray-100 gap-2 rounded-xl border border-gray-200 px-4 text-sm font-bold text-gray-600 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
           >
             <Filter className="h-4 w-4" />
             More Filters
@@ -358,7 +358,7 @@ export default function OrdersPage() {
       </div>
 
       {/* Orders Table */}
-      <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
         <div className="overflow-x-auto">
 
@@ -366,37 +366,37 @@ export default function OrdersPage() {
 
             <thead>
 
-              <tr className="border-b border-gray-100 bg-gray-50/70">
+              <tr className="border-b border-gray-100 bg-gray-50/70 dark:bg-gray-800 dark:text-gray-100">
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Order
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Customer
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Items
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Total
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Payment
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Status
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Date
                 </th>
 
-                <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Actions
                 </th>
 
@@ -428,11 +428,11 @@ export default function OrdersPage() {
 
                       <div>
 
-                        <p className="text-sm font-bold text-gray-900">
+                        <p className="text-sm font-bold text-gray-900 dark:text-gray-200">
                           {order.customer}
                         </p>
 
-                        <p className="mt-1 text-xs text-gray-400">
+                        <p className="mt-1 text-xs text-gray-400 dark:text-gray-200">
                           {order.email}
                         </p>
 
@@ -443,7 +443,7 @@ export default function OrdersPage() {
                     {/* Items */}
                     <td className="px-6 py-5">
 
-                      <span className="text-sm font-semibold text-gray-700">
+                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                         {order.items} items
                       </span>
 
@@ -452,7 +452,7 @@ export default function OrdersPage() {
                     {/* Total */}
                     <td className="px-6 py-5">
 
-                      <span className="text-sm font-black text-gray-900">
+                      <span className="text-sm font-black text-gray-900 dark:text-gray-300">
                         {order.total}
                       </span>
 
@@ -487,7 +487,7 @@ export default function OrdersPage() {
                     {/* Date */}
                     <td className="px-6 py-5">
 
-                      <span className="text-sm font-medium text-gray-500">
+                      <span className="text-sm font-medium text-gray-500 dark:text-gray-300">
                         {order.date}
                       </span>
 

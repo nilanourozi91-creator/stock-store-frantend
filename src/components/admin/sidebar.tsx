@@ -57,7 +57,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r bg-white">
+    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r bg-white dark:bg-gray-800 dark:text-white">
       <div className="flex h-full flex-col">
 
         {/* Logo */}
@@ -94,8 +94,8 @@ export default function Sidebar() {
                   text-sm font-medium transition
                   ${
                     active
-                      ? "bg-purple-50 text-purple-700"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                      ? "bg-purple-50 text-purple-700 dark:bg-gray-700"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:hover:text-gray-100 dark:hover:bg-gray-600"
                   }
                 `}
               >
@@ -110,11 +110,11 @@ export default function Sidebar() {
 
         {/* Bottom */}
 
-        <div className="border-t p-3">
+        <div className="border-t p-3 dark:border-gray-100">
 
           <Link
             href="/admin/settings"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
+            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-600 dark:text-gray-100 hover:bg-gray-50"
           >
             <Settings className="h-5 w-5" />
 
@@ -122,7 +122,7 @@ export default function Sidebar() {
           </Link>
 
           <button
-            className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-600 hover:bg-gray-50"
+            className="mt-1 flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm dark:text-gray-100 text-gray-600 hover:bg-gray-50"
           >
             <LogOut className="h-5 w-5" />
 

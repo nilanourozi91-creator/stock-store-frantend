@@ -30,17 +30,17 @@ const products = [
 
 export default function BestSellingProducts() {
   return (
-    <div className="rounded-[1.5rem] border border-gray-100 bg-white p-6 shadow-sm">
+    <div className="rounded-[1.5rem] border border-gray-100 dark:bg-gray-700 dark:text-white dark:border-gray-500 bg-white p-6 shadow-sm">
 
       {/* Header */}
       <div className="flex items-center justify-between">
 
         <div>
-          <h2 className="text-lg font-bold text-gray-900">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-300">
             Best Selling
           </h2>
 
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             Top products this month
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function BestSellingProducts() {
           >
 
             {/* Number */}
-            <span className="w-5 text-sm font-bold text-gray-400">
+            <span className="w-5 text-sm font-bold text-gray-400 dark:text-gray-200">
               {index + 1}
             </span>
 
@@ -77,7 +77,7 @@ export default function BestSellingProducts() {
             {/* Info */}
             <div className="min-w-0 flex-1">
 
-              <p className="truncate text-sm font-semibold text-gray-900">
+              <p className="truncate text-sm font-semibold text-gray-900 dark:text-gray-100">
                 {product.name}
               </p>
 
@@ -90,7 +90,7 @@ export default function BestSellingProducts() {
             {/* Sales */}
             <div className="text-right">
 
-              <p className="text-sm font-bold text-gray-900">
+              <p className="text-sm font-bold text-gray-900 dark:text-gray-100">
                 {product.sales}
               </p>
 
@@ -106,7 +106,7 @@ export default function BestSellingProducts() {
 
       </div>
 
-      <button className="mt-6 w-full rounded-xl bg-purple-50 py-3 text-sm font-semibold text-purple-600 transition hover:bg-purple-100">
+      <button className="mt-6 w-full rounded-xl bg-purple-50 py-3 text-sm font-semibold dark:bg-purple-600 dark:text-white text-purple-600 transition hover:bg-purple-100">
         View all products
       </button>
 

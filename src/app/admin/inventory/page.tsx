@@ -150,7 +150,7 @@ export default function InventoryPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 dark:bg-gray-600">
 
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -165,11 +165,11 @@ export default function InventoryPage() {
 
             <div>
 
-              <h1 className="text-2xl font-black tracking-tight text-gray-900">
+              <h1 className="text-2xl font-black tracking-tight text-gray-900 dark:text-gray-100">
                 Inventory
               </h1>
 
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
                 Monitor and manage your product stock.
               </p>
 
@@ -190,11 +190,11 @@ export default function InventoryPage() {
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
         {/* Inventory Value */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Inventory Value
             </p>
 
@@ -204,7 +204,7 @@ export default function InventoryPage() {
 
           </div>
 
-          <p className="mt-4 text-2xl font-black text-gray-900">
+          <p className="mt-4 text-2xl font-black text-gray-900 dark:text-gray-100">
             ${inventoryValue.toLocaleString(
               undefined,
               {
@@ -220,11 +220,11 @@ export default function InventoryPage() {
         </div>
 
         {/* Total Items */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Total Items
             </p>
 
@@ -234,22 +234,22 @@ export default function InventoryPage() {
 
           </div>
 
-          <p className="mt-4 text-2xl font-black text-gray-900">
+          <p className="mt-4 text-2xl font-black text-gray-900 dark:text-gray-100">
             {totalItems}
           </p>
 
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
             Units in inventory
           </p>
 
         </div>
 
         {/* Low Stock */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Low Stock
             </p>
 
@@ -263,18 +263,18 @@ export default function InventoryPage() {
             {lowStock}
           </p>
 
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
             Need restocking
           </p>
 
         </div>
 
         {/* Out of Stock */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
-            <p className="text-sm font-semibold text-gray-500">
+            <p className="text-sm font-semibold text-gray-500 dark:text-gray-300">
               Out of Stock
             </p>
 
@@ -288,7 +288,7 @@ export default function InventoryPage() {
             {outOfStock}
           </p>
 
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
             Products unavailable
           </p>
 
@@ -297,7 +297,7 @@ export default function InventoryPage() {
       </div>
 
       {/* Search */}
-      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
         <div className="relative">
 
@@ -309,7 +309,7 @@ export default function InventoryPage() {
               setSearch(e.target.value)
             }
             placeholder="Search by product name or SKU..."
-            className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-11 pr-4 text-sm outline-none transition focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-100"
+            className="h-11 w-full rounded-xl border border-gray-200 dark:text-gray-100 dark:bg-gray-700 dark:border-gray-500 bg-gray-50 pl-11 pr-4 text-sm outline-none transition focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-100"
           />
 
         </div>
@@ -317,7 +317,7 @@ export default function InventoryPage() {
       </div>
 
       {/* Inventory Table */}
-      <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
         <div className="overflow-x-auto">
 
@@ -325,29 +325,29 @@ export default function InventoryPage() {
 
             <thead>
 
-              <tr className="border-b border-gray-100 bg-gray-50/70">
+              <tr className="border-b border-gray-100 bg-gray-50/70 dark:bg-gray-800">
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Product
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Category
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   SKU
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Stock Level
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Status
                 </th>
 
-                <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Actions
                 </th>
 
@@ -389,11 +389,11 @@ export default function InventoryPage() {
 
                           <div>
 
-                            <p className="text-sm font-bold text-gray-900">
+                            <p className="text-sm font-bold text-gray-900 dark:text-gray-100">
                               {item.name}
                             </p>
 
-                            <p className="mt-1 text-xs text-gray-400">
+                            <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
                               ${item.price.toFixed(2)}
                               {" / unit"}
                             </p>
@@ -416,7 +416,7 @@ export default function InventoryPage() {
                       {/* SKU */}
                       <td className="px-6 py-5">
 
-                        <span className="font-mono text-xs font-semibold text-gray-500">
+                        <span className="font-mono text-xs font-semibold text-gray-500 dark:text-gray-300">
                           {item.sku}
                         </span>
 
@@ -429,11 +429,11 @@ export default function InventoryPage() {
 
                           <div className="mb-2 flex items-center justify-between">
 
-                            <span className="text-sm font-black text-gray-900">
+                            <span className="text-sm font-black text-gray-900 dark:text-gray-300">
                               {item.stock}
                             </span>
 
-                            <span className="text-[11px] text-gray-400">
+                            <span className="text-[11px] text-gray-400 dark:text-gray-300">
                               Min {item.minStock}
                             </span>
 

@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "../../utils";
 import { APP_DESCRIPTION, APP_NAME } from "@/components/constant";
@@ -40,7 +41,9 @@ export default function RootLayout({
         defaultTheme="light"
         enableSystem
         disableTransitionOnChange
-        > {children}
+        ><CartProvider>
+             {children}
+        </CartProvider>
         
         </ThemeProvider>
       </body>

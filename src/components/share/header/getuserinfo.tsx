@@ -22,14 +22,15 @@ function GetUserInfo() {
   },[]);
 //LOG OUT SECTION---------------
     function handleLogOut() {
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
+    Cookie.remove('token');
     setuser(null);
   }
  {
      if (user) {
       return(
           <div className='flex gap-x-3'>
-            <span className='text-sm w-10 h-10 justify-center items-center flex  rounded-full border border-purple-500 dark:bg-purple-500 bg-purple-600 text-white'>
+            <span className='text-sm w-10 h-10 justify-center items-center flex  rounded-full border border-purple-500 dark:bg-purple-500 bg-purple-600 text-black dark:text-white'>
                {user.name.toUpperCase().slice(0,1)}
             </span>
             <button
@@ -41,7 +42,7 @@ function GetUserInfo() {
      else{
       return(
            <button 
-            className="rounded-full border border-purple-600 py-2.5 px-3 text-center text-sm font-semibold  text-white  dark:hover:bg-purple-500
+            className="rounded-full border border-purple-600 py-2.5 px-3 text-center text-sm font-semibold  text-purple-700 dark:text-white  dark:hover:bg-purple-500
            ">
             <Link href={'/login'}>sign in</Link>
            </button>

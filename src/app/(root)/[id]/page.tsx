@@ -6,10 +6,13 @@ import ProdectImg from '@/components/share/prodect-image';
 import ProdectP from '@/components/landing/prodectprice';
 import { ArrowLeft, ArrowRight, Check, Heart, Minus, Plus, ShieldCheck, ShoppingCart, Star, Truck } from 'lucide-react';
 import Link from 'next/link';
+// import { useCart } from "@/context/CartContext";
 import RatingProducts from '@/components/share/rating';
 import { GetAllProdects, GetAllReviews, GetSingleProdect } from '@/lib/prodect.action';
+import AddTOCartBtn from './cart';
 
  async function Singleprodect({params}:{params:Promise<{id:number}>}) {
+      // const { addToCart } = useCart();
    const {id}=await params;
    const product =await GetSingleProdect(id);
    const prodects= await GetAllProdects();
@@ -19,23 +22,23 @@ import { GetAllProdects, GetAllReviews, GetSingleProdect } from '@/lib/prodect.a
   (item: any) => Number(item.pro_id) === Number(id));
   // console.log(reviews)
   return (
-     <main className="min-h-screen bg-white">
+     <main className="min-h-screen bg-white dark:bg-gray-600">
 
       {/* Breadcrumb */}
       <div className="border-b border-gray-100">
 
-        <div className="mx-auto max-w-7xl flex justify-between gap-2.5 px-4 py-5 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl flex justify-between gap-2.5 px-4 py-5 sm:px-6 lg:px-8 ">
             
              <Link
             href="/"
-            className="inline-flex border hover:bg-purple-500 hover:text-purple-50 px-2 py-1 rounded-2xl items-center gap-2 text-sm font-medium text-gray-500 transition"
+            className="inline-flex border hover:bg-purple-500 hover:text-purple-50 dark:bg-gray-700 dark:text-white px-2 py-1 rounded-2xl items-center gap-2 text-sm font-medium text-gray-500 transition"
           >
             <ArrowLeft className="h-4 w-4 " />
             Back to home
           </Link>
           <Link
             href="/shop"
-            className="inline-flex border hover:bg-purple-500 hover:text-purple-50 px-2 py-1 rounded-2xl items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-purple-600"
+            className="inline-flex border hover:bg-purple-500 hover:text-purple-50 dark:bg-gray-700 dark:text-white px-2 py-1 rounded-2xl items-center gap-2 text-sm font-medium text-gray-500 transition hover:text-purple-600"
           >
              Go to shop
             <ArrowRight className="h-4 w-4 " />
@@ -65,57 +68,17 @@ import { GetAllProdects, GetAllReviews, GetSingleProdect } from '@/lib/prodect.a
                 <span className="absolute left-5 top-5 rounded-full bg-purple-600 px-4 py-2 text-xs font-bold text-white">
                   Fresh
                 </span>
-
-                {/* <button
-                  type="button"
-                  onClick={() => setLiked(!liked)}
-                  className={`absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-lg transition ${
-                    liked
-                      ? "text-purple-600"
-                      : "text-gray-500 hover:text-purple-600"
-                  }`}
-                >
-                  <Heart
-                    className={`h-5 w-5 ${
-                      liked ? "fill-purple-600" : ""
-                    }`}
-                  />
-                </button> */}
-
               </div>
-
-              {/* Thumbnails */}
-              <div className="mt-4 grid grid-cols-4 gap-3">
-{/* 
-                {product.images.map((image, index) => (
-
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => setSelectedImage(index)}
-                    className={`flex h-24 items-center justify-center rounded-2xl text-4xl transition ${
-                      selectedImage === index
-                        ? "border-2 border-purple-600 bg-green-50"
-                        : "border border-gray-100 bg-gray-50 hover:border-purple-200"
-                    }`}
-                  >
-                    {image}
-                  </button>
-
-                ))} */}
-
-              </div>
-
             </div>
 
             {/* Information */}
             <div className="flex flex-col justify-center">
 
-              <p className="text-sm font-semibold text-purple-600">
+              <p className="text-sm font-semibold text-purple-600 dark:text-gray-100">
                 {product.data.category.name}
               </p>
 
-              <h1 className="mt-2 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">
+              <h1 className="mt-2 text-4xl font-black tracking-tight text-gray-900 dark:text-white sm:text-5xl">
                 {product.data.name}
               </h1>
               {/* Rating */}
@@ -127,7 +90,7 @@ import { GetAllProdects, GetAllReviews, GetSingleProdect } from '@/lib/prodect.a
               {/* Price */}
               <div className="mt-7 flex items-end gap-3">
 
-                <span className="text-4xl font-black text-purple-600">
+                <span className="text-4xl font-black text-purple-600 dark:text-gray-200">
                   {/* ${product.price.toFixed(2)} */}
                   <ProdectP price={product.data.price.toString()}/>
                 </span>
@@ -143,7 +106,7 @@ import { GetAllProdects, GetAllReviews, GetSingleProdect } from '@/lib/prodect.a
               </div>
 
               {/* Description */}
-              <p className="mt-6 text-base leading-7 text-gray-500">
+              <p className="mt-6 text-base leading-7 text-gray-500 dark:text-gray-200">
                 {product.data.description}
               </p>
               {/* Divider */}
@@ -156,57 +119,26 @@ import { GetAllProdects, GetAllReviews, GetSingleProdect } from '@/lib/prodect.a
                 </p>
 
                 <div className="mt-3 flex items-center gap-4">
-                  <div className="flex items-center rounded-xl border border-gray-200">
-
-                    {/* <button
-                      type="button"
-                      onClick={decreaseQuantity}
-                      className="flex h-11 w-11 items-center justify-center text-gray-500 transition hover:text-purple-600"
-                    >
-                      <Minus className="h-4 w-4" />
-                    </button> */}
-
-                    <span className="flex w-10 justify-center text-sm font-bold text-gray-900">
-                      {/* {product.data.inventory.quantity} */}
+                  <div className="flex items-center rounded-full">
+                    {product.data.inventory?.quantity?<div>
+                      <span className="flex w-10 justify-center text-sm font-bold py-1 px-6 bg-green-100 rounded-full text-green-700">
+                     {product.data.inventory?.quantity}
                     </span>
-
-                    {/* <button
-                      type="button"
-                      onClick={increaseQuantity}
-                      className="flex h-11 w-11 items-center justify-center text-gray-500 transition hover:text-purple-600"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </button> */}
-
+                     <span className="text-xs text-gray-400">
+                      Available
+                  </span>
+                    </div>:<div>
+                      <span className="text-xs text-red-600 bg-red-200 px-6 py-2 rounded-full">
+                      Unavailable
+                  </span>
+                      </div>}
                   </div>
 
-                  <span className="text-xs text-gray-400">
-                     {product.data.inventory.quantity} available
-                  </span>
-
                 </div>
-
               </div>
 
               {/* Buttons */}
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-
-                <button
-                  type="button"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-purple-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-purple-100 transition hover:bg-purple-700"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  Add to cart
-                </button>
-
-                <button
-                  type="button"
-                  className="rounded-xl border border-purple-200 px-6 py-4 text-sm font-bold text-purple-600 transition hover:bg-purple-50"
-                >
-                  Buy now
-                </button>
-
-              </div>
+                <AddTOCartBtn product={prodect}/>
 
               {/* Benefits */}
               <div className="mt-8 grid gap-4 sm:grid-cols-3">

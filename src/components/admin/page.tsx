@@ -11,6 +11,7 @@ import SalesChart from "./sales-chart";
 import BestSellingProducts from "./best-selling-products";
 import RecentOrders from "./recent-orders";
 import LowStock from "./low-stock";
+import { GetAllProdectfordashbored } from "@/lib/dashbored";
 
 // import StatCard from "@/components/admin/stat-card";
 // import SalesChart from "@/components/admin/sales-chart";
@@ -44,12 +45,13 @@ const stats = [
   },
 ];
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
+  const data= await GetAllProdectfordashbored();
   return (
     <div className="p-6 lg:p-8">
 
       {/* Header */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between dark:bg-gray-800">
 
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-gray-900">
@@ -75,7 +77,7 @@ export default function AdminDashboard() {
           <StatCard
             key={stat.title}
             title={stat.title}
-            value={stat.value}
+            value={data.data}
             change={stat.change}
             icon={stat.icon}
           />

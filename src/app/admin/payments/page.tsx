@@ -145,18 +145,18 @@ export default function PaymentsPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 dark:bg-gray-600">
 
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
         <div>
 
-          <h1 className="text-2xl font-black tracking-tight text-gray-900">
+          <h1 className="text-2xl font-black tracking-tight text-gray-900 dark:text-gray-100">
             Payments
           </h1>
 
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-200">
             Monitor transactions and payment activity.
           </p>
 
@@ -164,7 +164,7 @@ export default function PaymentsPage() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
+          className="inline-flex dark:bg-purple-600 dark:border-none dark:text-gray-100 items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-bold text-gray-700 shadow-sm transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
         >
           <Wallet className="h-4 w-4" />
           Payment Report
@@ -176,7 +176,7 @@ export default function PaymentsPage() {
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
         {/* Revenue */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
@@ -201,7 +201,7 @@ export default function PaymentsPage() {
         </div>
 
         {/* Completed */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
@@ -226,7 +226,7 @@ export default function PaymentsPage() {
         </div>
 
         {/* Pending */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
@@ -251,7 +251,7 @@ export default function PaymentsPage() {
         </div>
 
         {/* Failed */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
           <div className="flex items-center justify-between">
 
@@ -278,12 +278,12 @@ export default function PaymentsPage() {
       </div>
 
       {/* Filters */}
-      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+      <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
         <div className="flex flex-col gap-3 lg:flex-row">
 
           {/* Search */}
-          <div className="relative flex-1">
+          <div className="relative flex-1 ">
 
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
 
@@ -294,7 +294,7 @@ export default function PaymentsPage() {
                 setSearch(e.target.value)
               }
               placeholder="Search payment, order or customer..."
-              className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-11 pr-4 text-sm outline-none transition focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-100"
+              className="h-11 w-full rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-100   bg-gray-50 pl-11 pr-4 text-sm outline-none transition focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-100"
             />
 
           </div>
@@ -305,7 +305,7 @@ export default function PaymentsPage() {
             onChange={(e) =>
               setStatus(e.target.value)
             }
-            className="h-11 rounded-xl border border-gray-200 bg-gray-50 px-4 text-sm font-semibold text-gray-600 outline-none focus:border-purple-500"
+            className="h-11 rounded-xl border border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-500 dark:text-gray-100 px-4 text-sm font-semibold text-gray-600 outline-none focus:border-purple-500"
           >
             <option value="All">
               All Status
@@ -326,7 +326,7 @@ export default function PaymentsPage() {
 
           <button
             type="button"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-gray-200 px-4 text-sm font-bold text-gray-600 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border dark:text-gray-100 border-gray-200 px-4 text-sm font-bold text-gray-600 transition hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
           >
             <Filter className="h-4 w-4" />
             Filter
@@ -337,7 +337,7 @@ export default function PaymentsPage() {
       </div>
 
       {/* Payments Table */}
-      <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm dark:bg-gray-700 dark:border-gray-500">
 
         <div className="overflow-x-auto">
 
@@ -345,37 +345,37 @@ export default function PaymentsPage() {
 
             <thead>
 
-              <tr className="border-b border-gray-100 bg-gray-50/70">
+              <tr className="border-b border-gray-100 bg-gray-50/70 dark:bg-gray-800 text-gray-100 ">
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Payment
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Order
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Customer
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Method
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Amount
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Status
                 </th>
 
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Date
                 </th>
 
-                <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-gray-400">
+                <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
                   Actions
                 </th>
 
@@ -413,7 +413,7 @@ export default function PaymentsPage() {
                     {/* Order */}
                     <td className="px-6 py-5">
 
-                      <span className="font-mono text-xs font-semibold text-gray-500">
+                      <span className="font-mono text-xs font-semibold text-gray-500 dark:text-gray-300">
                         {payment.order}
                       </span>
 
@@ -422,7 +422,7 @@ export default function PaymentsPage() {
                     {/* Customer */}
                     <td className="px-6 py-5">
 
-                      <span className="text-sm font-bold text-gray-900">
+                      <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
                         {payment.customer}
                       </span>
 
@@ -437,7 +437,7 @@ export default function PaymentsPage() {
                           <CreditCard className="h-3.5 w-3.5 text-gray-500" />
                         </div>
 
-                        <span className="text-sm font-semibold text-gray-600">
+                        <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">
                           {payment.method}
                         </span>
 
@@ -448,7 +448,7 @@ export default function PaymentsPage() {
                     {/* Amount */}
                     <td className="px-6 py-5">
 
-                      <span className="text-sm font-black text-gray-900">
+                      <span className="text-sm font-black text-gray-900 dark:text-gray-100">
                         {payment.amount}
                       </span>
 
@@ -470,7 +470,7 @@ export default function PaymentsPage() {
                     {/* Date */}
                     <td className="px-6 py-5">
 
-                      <span className="text-sm font-medium text-gray-500">
+                      <span className="text-sm font-medium text-gray-500 dark:text-gray-300">
                         {payment.date}
                       </span>
 
