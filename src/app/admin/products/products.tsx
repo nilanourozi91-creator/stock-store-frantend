@@ -1,10 +1,19 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 
-// import { div } from '@/components/ui/button';
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 import Link from 'next/link';
 import { GetAllproductTable } from '@/lib/dashbored';
 import { Eye, MoreHorizontal, Package, Pencil, Star, Trash2 } from 'lucide-react';
+import Image from 'next/image';
 interface prodectreview{
  id:number,
  name:string,
@@ -41,125 +50,44 @@ function ProdectTable() {
   <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm dark:border-gray-500 dark:bg-gray-700 dark:text-gray-300">
 
         <div className="overflow-x-auto">
-
-          <table className="w-full min-w-[850px]">
-
-            <thead>
-              <tr className="border-b border-gray-100 bg-gray-50/70 dark:bg-gray-800">
-
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
-                  Product
-                </th>
-
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
-                  Category
-                </th>
-
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
-                  Price
-                </th>
-
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
-                  Stock
-                </th>
-
-                <th className="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
-                  Status
-                </th>
-
-                <th className="px-6 py-4 text-right text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-100">
-                  Actions
-                </th>
-
-              </tr>
-            </thead>
-
-            <tbody className="divide-y divide-gray-100">
-
-              {myfetchdata.map((x:any)=>(
-                <tr
-                  key={x.id}
-                  className="transition hover:bg-purple-50/30 "
-                >
-                   <td>{x.name}</td>
-                  {/* Product */}
-                  <td className="px-6 py-5">
-
-                    <div className="flex items-center gap-4">
-
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-50">
-                        <Package className="h-5 w-5 text-purple-500" />
-                      </div>
-
-                      <div>
-                        <p className="text-sm font-bold text-gray-900 dark:text-gray-200">
-                          {x.name}
-                        </p>
-
-                        <p className="mt-1 text-xs text-gray-400">
-                          #{x.id}
-                        </p>
-                      </div>
-
-                    </div>
-
-                  </td>
-
-                  {/* Category */}
-                  <td className="px-6 py-5">
-
-                    <span className="rounded-full bg-purple-50 px-3 py-1.5 text-xs font-bold text-purple-600">
-                      {x.category.name}
-                    </span>
-
-                  </td>
-
-                  {/* Price */}
-                  <td className="px-6 py-5">
-
-                    <span className="text-sm font-black text-gray-900 dark:text-gray-300">
-                      {x.price}
-                    </span>
-
-                  </td>
-
-                  {/* Stock */}
-                  <td className="px-6 py-5">
-
-                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                      {x.stock}
-                    </span>
-
-                  </td>
-
-                  {/* Status */}
-                   <td className="px-6 py-5">
-
-                    {x.stock >=12 && (
-                      <span className="rounded-full bg-green-50 px-3 py-1.5 text-xs font-bold text-green-600">
-                        In Stock
-                      </span>
-                    )}
-
-                    {x.stock <=10 && (
-                      <span className="rounded-full bg-yellow-50 px-3 py-1.5 text-xs font-bold text-yellow-700">
-                        Low Stock
-                      </span>
-                    )}
-
-                    {x.stock ==0  && (
-                      <span className="rounded-full bg-red-50 px-3 py-1.5 text-xs font-bold text-red-600">
-                        Out of Stock
-                      </span>
-                    )}
-
-                  </td>
-                     
-                  {/* Actions */}
-                  <td className="px-6 py-5">
-
-                    <div className="flex justify-end gap-1">
-
+        <Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Product</TableHead>
+      <TableHead>Image</TableHead>
+      <TableHead>Category</TableHead>
+      <TableHead>Price</TableHead>
+      <TableHead >Stock</TableHead>
+      <TableHead>Quantity</TableHead>
+      <TableHead>Brand</TableHead>
+      <TableHead>Descreptions</TableHead>
+      <TableHead >Actions</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+  
+     {myfetchdata.map((x:any)=>(
+    <TableRow className='' key={x.id}>
+      <TableCell className="font-medium">{x.name}</TableCell>
+      <TableCell className="font-medium">
+        <Image
+        src={`http://localhost:8000/storage/${x.imgall[0].img_url}`}
+        alt={x.name}
+        width={900}
+        height={900}
+        className="w-10 h-10"
+        unoptimized
+                    />
+      </TableCell>
+      <TableCell>{x.category.name}</TableCell>
+      <TableCell>{x.price}</TableCell>
+      <TableCell>{x.stock}</TableCell>
+      <TableCell>{x.inventory?.quantity}</TableCell>
+      <TableCell>{x.details.brand}</TableCell>
+      <TableCell>{x?.description}</TableCell>
+      <TableCell className="text-left">
+         <div className="flex justify-end gap-3">
+        
                       <button
                         title="View"
                         className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-purple-50 hover:text-purple-600"
@@ -188,18 +116,12 @@ function ProdectTable() {
                         <MoreHorizontal className="h-4 w-4" />
                       </button>
 
-                    </div>
-
-                  </td>
-
-                </tr>
-
-              ))}
-
-            </tbody>
-
-          </table>
-
+                            </div>
+      </TableCell>
+    </TableRow>
+    ))}
+  </TableBody>
+</Table>
         </div>
             {links && 
                   <div className='w-full max-w-5xl mx-auto flex gap-4 justify-center items-center my-7'>

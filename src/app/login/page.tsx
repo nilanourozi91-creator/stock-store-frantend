@@ -9,304 +9,448 @@ import {
   ShoppingBag,
   Sparkles,
 } from "lucide-react";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import Cookie from "js-cookie";
-import { Login } from "@/lib/auth.action";
+import { GetUserInfomations, Login } from "@/lib/auth.action";
+import { loginSchema } from "@/lib/validation/auth";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
+type LoginState = {
+  data: string;
+  success: boolean;
+  errors?: {
+    email?: string;
+    password?: string;
+  };
+};
+
+const initialState: LoginState = {
+  data: "",
+  success: false,
+  errors: {},
+};
+
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const [state,action]=  useActionState(Login,{
-      data:'', 
-      success:false,
-    });
-        console.log(state);
-    if (state.data) {
-      Cookie.set('token',state.data);
-    
-      // localStorage.setItem('token',state.data);
+
+  const [state, action, pending] = useActionState(
+    async (prevState: LoginState, formData: FormData) => {
+      // =========================
+      // ZOD VALIDATION
+      // =========================
+
+      const result = loginSchema.safeParse({
+        email: formData.get("email"),
+        password: formData.get("password"),
+      });
+
+      // =========================
+      // VALIDATION ERROR
+      // =========================
+
+      if (!result.success) {
+        const errors: LoginState["errors"] = {};
+
+        result.error.issues.forEach((issue) => {
+          const field = issue.path[0];
+
+          if (field === "email" || field === "password") {
+            errors[field] = issue.message;
+          }
+        });
+
+        return {
+          ...prevState,
+          success: false,
+          data: "",
+          errors,
+        };
+      }
+
+      // =========================
+      // ZOD PASSED
+      // SEND TO LARAVEL
+      // =========================
+
+      const response = await Login(prevState, formData);
+
+      return {
+        ...response,
+        errors: {},
+      };
+    },
+    initialState
+  );
+
+  // =========================
+  // SAVE TOKEN
+  // =========================
+  type user={
+    name:string,
+    email:string,
+    id:number,
+  }
+    //  getuserformessages
+     const [data ,setdata]=useState<user|null>(null);
+     useEffect(()=>{
+      const cookee=Cookie.get('token') as string|'';
+      async function getuser():Promise<user> {
+        return await GetUserInfomations(cookee);
+      }
+      async function getU() {
+        setdata(await getuser());
+      }
+      getU()
+     },[])
+    const router=useRouter();
+  useEffect(() => {
+    if (state.success && state.data) {
+      Cookie.set("token", state.data, {
+        expires: 7,
+        path: "/",
+      });
+       router.push('/');
+       toast.info('success',{
+        description: `${data?.name} login successfuly.`,
+        duration: 3000,
+       })
+       
     }
-    
+  }, [state.success, state.data]);
+
   return (
-    
-    <main className="min-h-screen bg-gray-50 text-black">
-        {state.success == false ?'someting went worng':'data get it successfully'}
+    <main className="min-h-screen bg-[#faf9f7] text-gray-900 dark:bg-gray-950 dark:text-gray-100">
       <div className="grid min-h-screen lg:grid-cols-2">
 
-        {/* Left - Brand */}
-        <section className="relative hidden overflow-hidden bg-purple-600 lg:flex">
+        {/* =========================================
+            LEFT BRAND SECTION
+        ========================================= */}
+
+        <section className="relative hidden overflow-hidden bg-purple-600 dark:bg-purple-700 lg:flex">
 
           {/* Decorations */}
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-white/10" />
 
           <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-white/5" />
 
-          <div className="absolute right-24 top-28 h-4 w-4 rounded-full bg-white/20" />
+          <div className="absolute left-20 top-24 h-5 w-5 rounded-full bg-white/20" />
 
-          <div className="absolute bottom-32 right-40 h-6 w-6 rounded-full bg-white/15" />
+          <div className="absolute right-32 top-40 h-3 w-3 rounded-full bg-white/30" />
 
-          <div className="relative z-10 flex w-full flex-col justify-between p-10 xl:p-16">
+          <div className="relative flex w-full flex-col justify-between p-12 xl:p-16">
 
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 text-white"
+              className="inline-flex w-fit items-center gap-3 text-white"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-sm">
-                <ShoppingBag className="h-5 w-5" />
+                <ShoppingBag className="h-6 w-6" />
               </div>
 
-              <span className="text-xl font-black tracking-tight">
+              <span className="text-xl font-bold">
                 FreshStock
               </span>
             </Link>
 
-            {/* Main */}
-            <div className="max-w-xl">
+            {/* Main Content */}
+            <div className="max-w-lg">
 
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
                 <Sparkles className="h-4 w-4" />
-                Welcome back
+                Fresh products, better living
               </div>
 
-              <h1 className="text-5xl font-black leading-tight tracking-tight text-white xl:text-6xl">
-                Fresh food,
-                <br />
-                delivered to
-                <br />
-                your door.
+              <h1 className="text-4xl font-black leading-tight text-white xl:text-6xl">
+                Welcome back to
+                <span className="block text-purple-100">
+                  FreshStock.
+                </span>
               </h1>
 
               <p className="mt-6 max-w-md text-base leading-7 text-purple-100">
-                Sign in to your FreshStock account and continue
-                shopping fresh groceries at great prices.
+                Sign in to continue shopping fresh products,
+                manage your orders, and enjoy a simple grocery
+                shopping experience.
               </p>
-
-              {/* Feature cards */}
-              <div className="mt-10 grid max-w-lg grid-cols-3 gap-3">
-
-                <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
-                  <p className="text-xl">🥑</p>
-                  <p className="mt-2 text-xs font-semibold text-white">
-                    Fresh products
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
-                  <p className="text-xl">🚚</p>
-                  <p className="mt-2 text-xs font-semibold text-white">
-                    Fast delivery
-                  </p>
-                </div>
-
-                <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
-                  <p className="text-xl">💜</p>
-                  <p className="mt-2 text-xs font-semibold text-white">
-                    Great prices
-                  </p>
-                </div>
-
-              </div>
 
             </div>
 
-            {/* Footer */}
-            <p className="text-xs text-purple-200">
-              © 2026 FreshStock. Freshness delivered.
+            {/* Bottom */}
+            <p className="text-sm text-purple-100">
+              Fresh groceries. Simple shopping. Better everyday.
             </p>
 
           </div>
-
         </section>
 
-        {/* Right - Login */}
-        <section className="flex items-center justify-center px-4 py-10 sm:px-6 lg:px-12">
+        {/* =========================================
+            LOGIN FORM
+        ========================================= */}
+
+        <section className="flex items-center justify-center bg-[#faf9f7] px-4 py-10 dark:bg-gray-950 sm:px-6 lg:px-12">
 
           <div className="w-full max-w-md">
 
-            {/* Mobile logo */}
+            {/* Mobile Logo */}
             <Link
               href="/"
               className="mb-10 flex items-center justify-center gap-3 lg:hidden"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-100">
-                <ShoppingBag className="h-5 w-5 text-purple-600" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-50 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400">
+                <ShoppingBag className="h-6 w-6" />
               </div>
 
-              <span className="text-xl font-black text-gray-900">
+              <span className="text-xl font-bold text-gray-950 dark:text-gray-100">
                 FreshStock
               </span>
             </Link>
 
-            {/* Heading */}
-            <div className="text-center sm:text-left">
+            {/* Header */}
+            <div className="mb-8">
 
-              <p className="text-sm font-semibold text-purple-600">
-                Welcome back 👋
+              <p className="mb-3 text-sm font-semibold text-purple-600 dark:text-purple-400">
+                Welcome back
               </p>
 
-              <h2 className="mt-2 text-3xl font-black tracking-tight text-gray-900 sm:text-4xl">
-                Sign in to FreshStock
+              <h2 className="text-3xl font-bold tracking-tight text-gray-950 dark:text-gray-100 sm:text-4xl">
+                Sign in to your account
               </h2>
 
-              <p className="mt-3 text-sm leading-6 text-gray-500">
-                Enter your details to access your account.
+              <p className="mt-3 text-sm leading-6 text-gray-500 dark:text-gray-400">
+                Enter your email and password to continue.
               </p>
 
             </div>
 
-            {/* Form */}
-            <form className="mt-8 space-y-5" action={action}>
-                 
-              {/* Email */}
+            {/* =========================================
+                FORM
+            ========================================= */}
+
+            <form action={action} className="space-y-6">
+
+              {/* EMAIL */}
               <div>
 
                 <label
                   htmlFor="email"
-                  className="text-sm font-semibold text-gray-700"
+                  className="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-300"
                 >
                   Email address
                 </label>
 
-                <div className="relative mt-2">
+                <div className="relative">
 
-                  <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                  <Mail className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 dark:text-gray-500" />
 
                   <input
                     id="email"
-                    required
-                    type="email"
                     name="email"
+                    type="email"
+                    autoComplete="email"
                     placeholder="you@example.com"
-                    className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-4 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
+                    className={`
+                      w-full rounded-xl border
+                      bg-white py-3.5 pl-12 pr-4
+                      text-gray-900
+                      outline-none transition
+
+                      placeholder:text-gray-400
+
+                      focus:ring-4
+                      focus:ring-purple-100
+
+                      dark:bg-gray-900
+                      dark:text-gray-100
+                      dark:placeholder:text-gray-500
+                      dark:focus:ring-purple-950
+
+                      ${
+                        state.errors?.email
+                          ? "border-red-400 focus:border-red-500"
+                          : "border-gray-200 focus:border-purple-500 dark:border-gray-800 dark:focus:border-purple-500"
+                      }
+                    `}
                   />
 
                 </div>
 
+                {/* Email Error */}
+                {state.errors?.email && (
+                  <p className="mt-2 text-sm font-medium text-red-500">
+                    {state.errors.email}
+                  </p>
+                )}
+
               </div>
 
-              {/* Password */}
+              {/* PASSWORD */}
               <div>
 
-                <div className="flex items-center justify-between">
+                <div className="mb-2 flex items-center justify-between">
 
                   <label
                     htmlFor="password"
-                    className="text-sm font-semibold text-gray-700"
+                    className="text-sm font-semibold text-gray-700 dark:text-gray-300"
                   >
                     Password
                   </label>
 
                   <Link
                     href="/forgot-password"
-                    className="text-xs font-semibold text-purple-600 hover:text-purple-700"
+                    className="text-sm font-semibold text-purple-600 transition hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
                   >
                     Forgot password?
                   </Link>
 
                 </div>
 
-                <div className="relative mt-2">
+                <div className="relative">
 
-                  <Lock className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                  <Lock className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 dark:text-gray-500" />
 
                   <input
                     id="password"
-                    required
                     name="password"
                     type={showPassword ? "text" : "password"}
+                    autoComplete="current-password"
                     placeholder="Enter your password"
-                    className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-11 pr-12 text-sm outline-none transition placeholder:text-gray-400 focus:border-purple-500 focus:ring-4 focus:ring-purple-100"
+                    className={`
+                      w-full rounded-xl border
+                      bg-white py-3.5 pl-12 pr-12
+                      text-gray-900
+                      outline-none transition
+
+                      placeholder:text-gray-400
+
+                      focus:ring-4
+                      focus:ring-purple-100
+
+                      dark:bg-gray-900
+                      dark:text-gray-100
+                      dark:placeholder:text-gray-500
+                      dark:focus:ring-purple-950
+
+                      ${
+                        state.errors?.password
+                          ? "border-red-400 focus:border-red-500"
+                          : "border-gray-200 focus:border-purple-500 dark:border-gray-800 dark:focus:border-purple-500"
+                      }
+                    `}
                   />
 
                   <button
                     type="button"
                     onClick={() =>
-                      setShowPassword(!showPassword)
+                      setShowPassword((value) => !value)
                     }
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-purple-600"
+                    aria-label={
+                      showPassword
+                        ? "Hide password"
+                        : "Show password"
+                    }
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
                   >
                     {showPassword ? (
-                      <EyeOff className="h-4 w-4" />
+                      <EyeOff className="h-5 w-5" />
                     ) : (
-                      <Eye className="h-4 w-4" />
+                      <Eye className="h-5 w-5" />
                     )}
                   </button>
 
                 </div>
 
-              </div>
-
-              {/* Remember */}
-              <div className="flex items-center gap-3">
-
-                <input
-                  id="remember"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500"
-                />
-
-                <label
-                  htmlFor="remember"
-                  className="text-xs text-gray-500"
-                >
-                  Remember me
-                </label>
+                {/* Password Error */}
+                {state.errors?.password && (
+                  <p className="mt-2 text-sm font-medium text-red-500">
+                    {state.errors.password}
+                  </p>
+                )}
 
               </div>
 
-              {/* Submit */}
+              {/* SERVER ERROR / MESSAGE */}
+              {state.data && !state.success && (
+                <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400">
+                  {state.data}
+                </div>
+              )}
+
+              {/* SUCCESS */}
+              {state.success && state.data && (
+                <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-600 dark:border-green-900/50 dark:bg-green-950/30 dark:text-green-400">
+                  Login successful!
+                </div>
+              )}
+
+              {/* SUBMIT */}
               <button
                 type="submit"
-                className="group flex w-full items-center justify-center gap-2 rounded-xl bg-purple-600 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-purple-100 transition hover:bg-purple-700"
+                disabled={pending}
+                className="
+                  group
+                  flex w-full
+                  items-center justify-center
+                  gap-2
+                  rounded-xl
+                  bg-purple-600
+                  px-5 py-3.5
+                  text-sm font-semibold
+                  text-white
+                  shadow-lg shadow-purple-200
+                  transition
+
+                  hover:bg-purple-700
+                  disabled:cursor-not-allowed
+                  disabled:opacity-60
+
+                  dark:bg-purple-500
+                  dark:hover:bg-purple-400
+                  dark:shadow-none
+                "
               >
-               {/* {pending?'please waite':'login '} */}
-                   Login
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                {pending ? (
+                  <>
+                    <span className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                    Signing in...
+                  </>
+                ) : (
+                  <>
+                    Sign in
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
               </button>
 
             </form>
 
-            {/* Divider */}
-            <div className="my-7 flex items-center gap-4">
+            {/* REGISTER */}
+            <div className="mt-8 text-center">
 
-              <div className="h-px flex-1 bg-gray-200" />
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Don't have an account?{" "}
 
-              <span className="text-xs text-gray-400">
-                or
-              </span>
-
-              <div className="h-px flex-1 bg-gray-200" />
+                <Link
+                  href="/register"
+                  className="font-semibold text-purple-600 transition hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
+                >
+                  Create an account
+                </Link>
+              </p>
 
             </div>
 
-            {/* Register */}
-            <p className="text-center text-sm text-gray-500">
-
-              Don't have an account?{" "}
-
-              <Link
-                href="/register"
-                className="font-bold text-purple-600 hover:text-purple-700"
-              >
-                Create account
-              </Link>
-
-            </p>
-
-            {/* Back */}
-            <Link
-              href="/"
-              className="mx-auto mt-8 flex w-fit items-center gap-2 text-xs font-semibold text-gray-400 transition hover:text-purple-600"
-            >
-              <ArrowRight className="h-3.5 w-3.5 rotate-180" />
-              Back to FreshStock
-            </Link>
+            {/* Security Note */}
+            <div className="mt-8 flex items-center justify-center gap-2 text-xs text-gray-400 dark:text-gray-500">
+              <Lock className="h-3.5 w-3.5" />
+              Your account information is protected.
+            </div>
 
           </div>
 
         </section>
-
       </div>
-
     </main>
   );
 }

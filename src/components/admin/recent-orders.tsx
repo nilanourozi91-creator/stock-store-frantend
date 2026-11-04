@@ -93,17 +93,17 @@ function StatusBadge({
 
 export default function RecentOrders() {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-gray-100 bg-white dark:border-gray-500 dark:bg-gray-700 shadow-sm">
+    <div className="overflow-hidden rounded-[1.5rem] border border-gray-100 bg-white dark:border-gray-800 dark:bg-gray-900 shadow-sm">
 
       {/* Header */}
       <div className="flex items-center justify-between border-b dark:border-gray-500 p-6">
 
         <div>
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-300">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-200">
             Recent Orders
           </h2>
 
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-200">
             Latest customer orders
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function RecentOrders() {
           <thead>
             <tr className="border-b border-gray-100 bg-gray-50/60 text-left dark:bg-gray-600">
 
-              <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-300">
+              <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-3 00">
                 Order
               </th>
 
@@ -175,7 +175,7 @@ export default function RecentOrders() {
                       {order.initials}
                     </div>
 
-                    <span className="text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
                       {order.customer}
                     </span>
 
@@ -186,7 +186,7 @@ export default function RecentOrders() {
                 {/* Products */}
                 <td className="px-6 py-5">
 
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-sm text-gray-600 dark:text-gray-200">
                     {order.products}{" "}
                     {order.products === 1
                       ? "product"
@@ -248,7 +248,7 @@ export default function RecentOrders() {
                     {order.id}
                   </Link>
 
-                  <p className="mt-1 text-sm text-gray-900">
+                  <p className="mt-1 text-sm text-gray-900 dark:text-gray-100">
                     {order.customer}
                   </p>
 
@@ -268,7 +268,7 @@ export default function RecentOrders() {
                 {order.products} products
               </span>
 
-              <span className="font-bold text-gray-900">
+              <span className="font-bold text-gray-900 dark:text-gray-100">
                 {order.total}
               </span>
 

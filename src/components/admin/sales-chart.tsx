@@ -44,7 +44,7 @@ function CustomTooltip({
   const value = Number(payload[0]?.value ?? 0);
 
   return (
-    <div className="rounded-2xl border border-gray-100 bg-white px-4 py-3 shadow-xl">
+    <div className="rounded-2xl border border-gray-800 bg-white  px-4 py-3 shadow-xl">
       <p className="text-xs font-medium text-gray-400">
         {label}
       </p>
@@ -58,17 +58,17 @@ function CustomTooltip({
 
 export default function SalesChart() {
   return (
-    <div className="rounded-[1.5rem]  border dark:border-gray-500 border-gray-100 dark:bg-gray-700 bg-white p-6 shadow-sm">
+    <div className="rounded-[1.5rem]  border dark:border-gray-800 border-gray-100 dark:bg-gray-900 bg-white p-6 shadow-sm">
 
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 
         <div>
-          <h2 className="text-lg font-bold text-gray-900">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
             Sales Overview
           </h2>
 
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
             Revenue performance throughout the year
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function SalesChart() {
             Total Revenue
           </p>
 
-          <p className="mt-1 text-3xl font-black tracking-tight text-gray-900 dark:text-gray-300">
+          <p className="mt-1 text-3xl font-black tracking-tight text-gray-900 dark:text-gray-200">
             $98,450
           </p>
         </div>

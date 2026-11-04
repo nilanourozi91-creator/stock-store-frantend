@@ -18,39 +18,15 @@ import RevenueReports from "@/components/admin/reports/revenueReports";
 import OrderReports from "@/components/admin/reports/orderReports";
 import ProductsReport from "./reports/Products Report/page";
 import GetProductReport from "@/components/admin/prodectReport";
+import { useState } from "react";
 // import GetProductReport from "@/components/admin/reports/prodectReport";
 
-const stats = [
-  {
-    title: "Total Revenue",
-    value: "$24,580",
-    change: "+12.5%",
-    icon: DollarSign,
-  },
-  {
-    title: "Total Orders",
-    value: "356",
-    change: "+8.2%",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Customers",
-    value: "1,248",
-    change: "+14.4%",
-    icon: Users,
-  },
-  {
-    title: "Products",
-    value: "486",
-    change: "+5.7%",
-    icon: Package,
-  },
-];
 
   
 export default function AdminDashboard() {
+   const [showText,setShowText]=useState(true);
   return (
-    <div className="min-h-full bg-gray-50/50 p-6 lg:p-8 dark:bg-gray-600 dark:text-white">
+    <div className="min-h-full bg-gray-50/50 p-6 lg:p-8 dark:bg-gray-950 dark:text-white">
 
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

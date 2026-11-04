@@ -6,6 +6,7 @@ import { CartProvider } from "@/context/CartContext";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "../../utils";
 import { APP_DESCRIPTION, APP_NAME } from "@/components/constant";
+import { Toaster } from "sonner";
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -46,6 +47,11 @@ export default function RootLayout({
         </CartProvider>
         
         </ThemeProvider>
+         <Toaster
+    position="top-right"
+    richColors
+    closeButton
+  />
       </body>
     </html>
   );

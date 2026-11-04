@@ -10,6 +10,7 @@ import {
   Users,
   Settings,
   LogOut,
+  Database,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -51,17 +52,22 @@ const menuItems = [
     href: "/admin/customers",
     icon: Users,
   },
+  {
+    title: "Reports",
+    href: "/admin/Reports",
+    icon: Database,
+  },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({setShowText,showText}:{setShowText:any,showText:any}) {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r bg-white dark:bg-gray-800 dark:text-white">
-      <div className="flex h-full flex-col">
-
+    <aside className={`fixed left-0 top-0 max hidden md:block md:w-64 z-40 h-screen w-64 border-r bg-white dark:bg-gray-900 dark:text-white`}>
+      <div className={`flex h-full flex-col `}>
+        
         {/* Logo */}
-
+         {/* <Database */}
         <div className="flex h-20 items-center px-6">
           <div>
             <h1 className="text-xl font-bold tracking-tight">
@@ -101,7 +107,9 @@ export default function Sidebar() {
               >
                 <Icon className="h-5 w-5" />
 
-                {item.title}
+                <div  className={``}>
+                  {item.title}
+                </div>
               </Link>
             );
           })}

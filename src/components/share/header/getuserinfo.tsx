@@ -3,6 +3,7 @@ import { GetUser } from '@/lib/getuserinfo';
 import Link from 'next/link';
 import Cookie from 'js-cookie';
 import React, { useEffect, useState } from 'react'
+import { div } from 'framer-motion/client';
 type user={
   name:string,
   email:string,
@@ -13,18 +14,19 @@ function GetUserInfo() {
   useEffect(()=>{
     const token= Cookie.get('token')as string||'';
     async function GetUsers():Promise<user> {
-      return await GetUserInfomations(token);
+      return await GetUserInfomations(token); 
     }
     async function GetU() {
       setuser( await GetUser());
     }
     GetU();
   },[]);
-//LOG OUT SECTION---------------
+  //LOG OUT SECTION---------------
     function handleLogOut() {
     // localStorage.removeItem("token");
     Cookie.remove('token');
     setuser(null);
+
   }
  {
      if (user) {
@@ -41,11 +43,19 @@ function GetUserInfo() {
      }
      else{
       return(
-           <button 
+         <div className='flex gap-x-3'>
+            <button 
             className="rounded-full border border-purple-600 py-2.5 px-3 text-center text-sm font-semibold  text-purple-700 dark:text-white  dark:hover:bg-purple-500
            ">
             <Link href={'/login'}>sign in</Link>
            </button>
+            <Link
+            href="/register"
+            className="rounded-full bg-purple-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-400"
+          >
+            Get Started
+          </Link>
+         </div>
       );
      }
  }

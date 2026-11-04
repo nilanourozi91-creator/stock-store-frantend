@@ -2,6 +2,15 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 // import { div } from '@/components/ui/button';
 import Link from 'next/link';
 import { GetAllCustomers, GetAllproductTable } from '@/lib/dashbored';
@@ -42,137 +51,41 @@ function ProdectTable() {
   <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm dark:border-gray-500 dark:bg-gray-700 dark:text-gray-300">
 
         <div className="overflow-x-auto">
-
-          <table className="w-full min-w-[850px]">
-
-            <thead>
-              <tr className="bg-gray-800 ">
-                <th className="">
-                  Customers
-                </th>
-
-                <th className=" text-gray-400 dark:text-gray-100">
-                  Contact
-                </th>
-
-                <th className=" text-gray-400 dark:text-gray-100">
-                  Role
-                </th>
-
-                <th className="p text-gray-400 dark:text-gray-100">
-                  Joined
-                </th>
-
-                <th className=" text-gray-400 dark:text-gray-100">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-
-            <tbody className="divide-y divide-gray-100">
-
-              {myfetchdata.map((x:any)=>(
-                <tr
-                  key={x.id}
-                  className="transition hover:bg-purple-50/30 "
-                >
-                  
-                  {/* Product */}
-                 <td className="px-6 py-5">
-
-                      <div className="flex items-center gap-3">
-
-                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-purple-100 text-sm font-black text-purple-600">
-                          {x.name
-                            .split(" ")
-                            .map(
-                              (name:any) =>
-                                name[0]
-                            )
-                            .join("")
-                            .slice(0, 2)}
-                        </div>
-
-                        <div>
-
-                          <p className="text-sm font-bold text-gray-900 dark:text-gray-100">
-                            {x.name}
-                          </p>
-
-                          <p className="mt-1 text-xs text-gray-400 dark:text-gray-300">
-                            Customer #{String(x.id).padStart(4, "0")}
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                    </td>
-
-                  {/* Category */}
-                   <td className="px-6 py-5">
-
-                      <div className="space-y-1">
-
-                        <div className="flex items-center gap-2">
-
-                          <Mail className="h-3.5 w-3.5 text-gray-400 dark:text-gray-300" />
-
-                          <span className="text-xs font-medium text-gray-500 dark:text-gray-300">
-                            {x.email}
-                          </span>
-
-                        </div>
-
-                        {/* <div className="flex items-center gap-2">
-
-                          <Phone className="h-3.5 w-3.5 text-gray-400 dark:text-gray-300" />
-
-                          <span className="text-xs font-medium text-gray-500 dark:text-gray-300">
-                            {x.phone}
-                          </span>
-
-                        </div> */}
-
-                      </div>
-
-                    </td>
-
-                   {/* Orders */}
-                    <td className="px-6 py-5">
-
-                      <div className="flex items-center gap-2">
-
-                        {/* <ShoppingBag className="h-4 w-4 text-purple-500" /> */}
-
-                        <span className="text-sm font-black text-gray-900 dark:text-gray-300">
-                          {x.role}
-                        </span>
-
-                      </div>
-
-                    </td>
-                     {/* Spent */}
-                    <td className="px-6 py-5">
-
-                      <span className="text-sm font-black text-gray-900 dark:text-gray-300">
-                        {/* {x.orders.subtotal} */}
-                        
-                      </span>
-
-                    </td>
-                      {/* Joined */}
-                    <td className="px-6 py-5">
-
-                      <span className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        {x.created_at}
-                      </span>
-
-                    </td>
-                  {/* Actions */}
-                  <td className="px-6 py-5">
-
-                    <div className="flex justify-end gap-1">
+          <Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead className="">Customers</TableHead>
+      <TableHead className=""> Contact</TableHead>
+      <TableHead className="">  Role</TableHead>
+      <TableHead className=""> Joined</TableHead>
+      <TableHead className="">  Actions</TableHead>
+      {/* <TableHead className="text-right">Amount</TableHead> */}
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+     {myfetchdata.map((x:any)=>(
+    <TableRow key={x.id}>  
+      <TableCell className='flex gap-5'>
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-purple-100 text-sm font-black text-purple-600">
+          {x.name
+          .split(" ")
+          .map(
+            (name:any) =>
+              name[0]
+          )
+          .join("")
+          .slice(0, 2)}
+        </span>
+       <div className='flex  flex-col'>
+         <span className='font-bold'>{x.name}</span>
+        <span> Customer #{String(x.id).padStart(4,"0")}</span>
+       </div>
+      </TableCell>
+      <TableCell> {x.email}</TableCell>
+      <TableCell> {x.role}</TableCell>
+      <TableCell> {x.created_at}</TableCell>
+      <TableCell>
+        <div className="flex justify-end gap-3">
 
                       <button
                         title="View"
@@ -203,16 +116,11 @@ function ProdectTable() {
                       </button>
 
                     </div>
-
-                  </td>
-
-                </tr>
-
-              ))}
-
-            </tbody>
-
-          </table>
+      </TableCell>
+    </TableRow>
+    ))}
+  </TableBody>
+</Table>
 
         </div>
             {links && 

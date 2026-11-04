@@ -61,7 +61,7 @@ function getStatusStyles(status: string) {
 
 export default function LowStock() {
   return (
-    <div className="rounded-[1.5rem] border border-gray-100 bg-white dark:bg-gray-700 dark:border-gray-500 p-6 shadow-sm">
+    <div className="rounded-[1.5rem] border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800 p-6 shadow-sm">
 
       {/* header */}
       <div className="flex items-start justify-between">
@@ -121,11 +121,11 @@ export default function LowStock() {
 
                   <div className="min-w-0">
 
-                    <p className="truncate text-sm font-semibold text-gray-900 dark:text-gray-400">
+                    <p className="truncate text-sm font-semibold text-gray-900 dark:text-gray-100">
                       {product.name}
                     </p>
 
-                    <p className="mt-1 text-xs text-gray-400">
+                    <p className="mt-1 text-xs text-gray-200">
                       {product.category}
                     </p>
 
@@ -146,7 +146,7 @@ export default function LowStock() {
 
                 <div className="mb-2 flex items-center justify-between">
 
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-gray-200">
                     Stock level
                   </span>
 
@@ -178,7 +178,7 @@ export default function LowStock() {
       {/* Footer */}
       <Link
         href="/admin/inventory"
-        className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-purple-50 py-3 text-sm font-semibold text-purple-600 transition hover:bg-purple-100"
+        className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl dark:bg-purple-500 dark:text-white bg-purple-50 py-3 text-sm font-semibold text-purple-600 transition hover:bg-purple-100"
       >
         Manage inventory
 
